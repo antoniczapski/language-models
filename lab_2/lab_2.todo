@@ -1,0 +1,169 @@
+{
+  "todotree": {
+    "tree": [
+      {
+        "key": 1735400177172,
+        "children": [
+          {
+            "key": 1735400316936,
+            "children": [],
+            "todo": {
+              "content": "Użyć modelu 100M - 1B do działań arytmetycznych",
+              "id": 1735400316936,
+              "level": "default",
+              "done": false,
+              "start": 1735400316936
+            }
+          },
+          {
+            "key": 1735400340763,
+            "children": [],
+            "todo": {
+              "content": "Pokazać, że wyniki są lepsze niż losowe",
+              "id": 1735400340763,
+              "level": "default",
+              "done": false,
+              "start": 1735400340764
+            }
+          },
+          {
+            "key": 1735400364547,
+            "children": [],
+            "todo": {
+              "content": "Żetelnie spisać wnioski",
+              "id": 1735400364547,
+              "level": "default",
+              "done": false,
+              "start": 1735400364547
+            }
+          },
+          {
+            "key": 1735400373897,
+            "children": [],
+            "todo": {
+              "content": "(bonus) znaleźć bias",
+              "id": 1735400373897,
+              "level": "default",
+              "done": false,
+              "start": 1735400373897
+            }
+          }
+        ],
+        "todo": {
+          "content": "Task 1",
+          "id": 1735400177172,
+          "level": "default",
+          "done": false,
+          "start": 1735400177172
+        }
+      },
+      {
+        "key": 1735400383796,
+        "children": [],
+        "todo": {
+          "content": "Task 2",
+          "id": 1735400383796,
+          "level": "default",
+          "done": false,
+          "start": 1735400383796
+        }
+      },
+      {
+        "key": 1735400524519,
+        "children": [
+          {
+            "key": 1735400698873,
+            "children": [],
+            "todo": {
+              "content": "Napisz niezachłanny algorytm do znajdowania właściwego zdania z ciągu zbiorów  słów",
+              "id": 1735400698873,
+              "level": "default",
+              "done": false,
+              "start": 1735400698873
+            }
+          }
+        ],
+        "todo": {
+          "content": "Task 3",
+          "id": 1735400524519,
+          "level": "default",
+          "done": false,
+          "start": 1735400524519
+        }
+      },
+      {
+        "key": 1735400857999,
+        "children": [
+          {
+            "key": 1735400862461,
+            "children": [],
+            "todo": {
+              "content": "Dla zadanego prefiksu dokończyć zdanie - wszystkie pierwsze litery mają być takie same",
+              "id": 1735400862461,
+              "level": "default",
+              "done": false,
+              "start": 1735400862461
+            }
+          },
+          {
+            "key": 1735400894276,
+            "children": [],
+            "todo": {
+              "content": "Stosować top-p i top-k",
+              "id": 1735400894276,
+              "level": "default",
+              "done": false,
+              "start": 1735400894276
+            }
+          },
+          {
+            "key": 1735400917855,
+            "children": [],
+            "todo": {
+              "content": "Generować kilka wariantów i wybierać z nich najlepszy",
+              "id": 1735400917855,
+              "level": "default",
+              "done": false,
+              "start": 1735400917855
+            }
+          },
+          {
+            "key": 1735400938225,
+            "children": [],
+            "todo": {
+              "content": "Unikać powtórzeń",
+              "id": 1735400938225,
+              "level": "default",
+              "done": false,
+              "start": 1735400938225
+            }
+          }
+        ],
+        "todo": {
+          "content": "Task 4",
+          "id": 1735400857999,
+          "level": "default",
+          "done": false,
+          "start": 1735400857999
+        }
+      }
+    ],
+    "expandKeys": [
+      1735400177172,
+      1735400524519,
+      1735400857999
+    ],
+    "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
+    "add_mode": "bottom",
+    "virtual": false,
+    "timelines": [],
+    "showLine": false,
+    "playFontSize": 24,
+    "title": "lab_2",
+    "autoSort": false,
+    "showEndTime": false,
+    "simpleMode": false,
+    "lang": "en",
+    "version": "1735400944655"
+  }
+}

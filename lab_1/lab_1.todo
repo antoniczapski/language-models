@@ -1,0 +1,184 @@
+{
+  "todotree": {
+    "tree": [
+      {
+        "key": 1735398906235,
+        "children": [
+          {
+            "key": 1735399244183,
+            "children": [],
+            "todo": {
+              "content": "Use language model to create chatbot",
+              "id": 1735399244183,
+              "level": "default",
+              "done": false,
+              "start": 1735399244183
+            }
+          },
+          {
+            "key": 1735399305946,
+            "children": [],
+            "todo": {
+              "content": "Generate more than one answer and chose the best with heuristic",
+              "id": 1735399305946,
+              "level": "default",
+              "done": false,
+              "start": 1735399305946
+            }
+          },
+          {
+            "key": 1735399365704,
+            "children": [],
+            "todo": {
+              "content": "Deal with history",
+              "id": 1735399365704,
+              "level": "default",
+              "done": false,
+              "start": 1735399365704
+            }
+          }
+        ],
+        "todo": {
+          "content": "Task 1",
+          "id": 1735398906235,
+          "level": "default",
+          "done": false,
+          "start": 1735398906235
+        }
+      },
+      {
+        "key": 1735399488413,
+        "children": [
+          {
+            "key": 1735399495144,
+            "children": [],
+            "todo": {
+              "content": "Znajdź właściwe uszeregowanie bag-of-words w zdanie - zachłannie",
+              "id": 1735399495144,
+              "level": "default",
+              "done": false,
+              "start": 1735399495144
+            }
+          },
+          {
+            "key": 1735399537274,
+            "children": [],
+            "todo": {
+              "content": "Znajdź właściwe uszeregowanie bag-of-words w zdanie - używając jedynie kombinacji par",
+              "id": 1735399537274,
+              "level": "default",
+              "done": false,
+              "start": 1735399537274
+            }
+          }
+        ],
+        "todo": {
+          "content": "Task 2",
+          "id": 1735399488413,
+          "level": "default",
+          "done": false,
+          "start": 1735399488413
+        }
+      },
+      {
+        "key": 1735399616438,
+        "children": [
+          {
+            "key": 1735399621809,
+            "children": [],
+            "todo": {
+              "content": "Sprawdź wydźwięk danego zdania używając LM do wyznaczania prawdopodobieństwa zdania",
+              "id": 1735399621809,
+              "level": "default",
+              "done": false,
+              "start": 1735399621809
+            }
+          },
+          {
+            "key": 1735399673111,
+            "children": [],
+            "todo": {
+              "content": "Przetestuj kilka rodzajów 'promptów' na danych testowych",
+              "id": 1735399673111,
+              "level": "default",
+              "done": false,
+              "start": 1735399673111
+            }
+          }
+        ],
+        "todo": {
+          "content": "Task 3",
+          "id": 1735399616438,
+          "level": "default",
+          "done": false,
+          "start": 1735399616438
+        }
+      },
+      {
+        "key": 1735399792406,
+        "children": [
+          {
+            "key": 1735399796496,
+            "children": [],
+            "todo": {
+              "content": "Rozwiąż question-answering z użyciem LM - https://2021.poleval.pl/",
+              "id": 1735399796496,
+              "level": "default",
+              "done": false,
+              "start": 1735399796496
+            }
+          },
+          {
+            "key": 1735399837869,
+            "children": [],
+            "todo": {
+              "content": "Użyj heurystyki",
+              "id": 1735399837869,
+              "level": "default",
+              "done": false,
+              "start": 1735399837869
+            }
+          },
+          {
+            "key": 1735399847940,
+            "children": [],
+            "todo": {
+              "content": "Użyj obliczania prawdopodobieństw",
+              "id": 1735399847940,
+              "level": "default",
+              "done": false,
+              "start": 1735399847940
+            }
+          }
+        ],
+        "todo": {
+          "content": "Task 4",
+          "id": 1735399792406,
+          "level": "default",
+          "done": false,
+          "start": 1735399792406
+        }
+      }
+    ],
+    "expandKeys": [
+      1735399244183,
+      1735399305946,
+      1735398906235,
+      1735399488413,
+      1735399616438,
+      1735399792406
+    ],
+    "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
+    "add_mode": "bottom",
+    "virtual": false,
+    "timelines": [],
+    "showLine": false,
+    "playFontSize": 24,
+    "title": ".todo",
+    "autoSort": false,
+    "showEndTime": false,
+    "simpleMode": false,
+    "lang": "en",
+    "version": "1735399876593"
+  }
+}

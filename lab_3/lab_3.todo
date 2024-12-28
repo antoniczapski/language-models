@@ -1,0 +1,205 @@
+{
+  "todotree": {
+    "tree": [
+      {
+        "key": 1735401748993,
+        "children": [
+          {
+            "key": 1735401861449,
+            "children": [],
+            "todo": {
+              "content": "Stwórz embedding słowa z embeddingu tokenów",
+              "id": 1735401861449,
+              "level": "default",
+              "done": false,
+              "start": 1735401861449
+            }
+          },
+          {
+            "key": 1735401899198,
+            "children": [],
+            "todo": {
+              "content": "Wykorzystaj contextual embeddings z BERTa",
+              "id": 1735401899198,
+              "level": "default",
+              "done": false,
+              "start": 1735401899198
+            }
+          },
+          {
+            "key": 1735401913903,
+            "children": [],
+            "todo": {
+              "content": "Przetestuj rozwiązanie przy pomocy word_emb_evaluation.py",
+              "id": 1735401913903,
+              "level": "default",
+              "done": false,
+              "start": 1735401913903
+            }
+          }
+        ],
+        "todo": {
+          "content": "Task 1",
+          "id": 1735401748993,
+          "level": "default",
+          "done": false,
+          "start": 1735401748994
+        }
+      },
+      {
+        "key": 1735401942650,
+        "children": [
+          {
+            "key": 1735402050326,
+            "children": [],
+            "todo": {
+              "content": "Use Papuga for sentiment analysis with sentence probability",
+              "id": 1735402050326,
+              "level": "default",
+              "done": false,
+              "start": 1735402050326
+            }
+          },
+          {
+            "key": 1735402092993,
+            "children": [],
+            "todo": {
+              "content": "Use BERT for sentiment analysis as feature extractor",
+              "id": 1735402092993,
+              "level": "default",
+              "done": false,
+              "start": 1735402092993
+            }
+          },
+          {
+            "key": 1735402119890,
+            "children": [],
+            "todo": {
+              "content": "Use ML model on top of two solutions above",
+              "id": 1735402119890,
+              "level": "default",
+              "done": false,
+              "start": 1735402119890
+            }
+          },
+          {
+            "key": 1735402135614,
+            "children": [],
+            "todo": {
+              "content": "Bonus points for accuracy above 85%",
+              "id": 1735402135614,
+              "level": "default",
+              "done": false,
+              "start": 1735402135614
+            }
+          }
+        ],
+        "todo": {
+          "content": "Task 2",
+          "id": 1735401942650,
+          "level": "default",
+          "done": false,
+          "start": 1735401942650
+        }
+      },
+      {
+        "key": 1735402154790,
+        "children": [
+          {
+            "key": 1735402360280,
+            "children": [],
+            "todo": {
+              "content": "Augment the 'review dataset' from the previous task and train Logistic Regression predictor",
+              "id": 1735402360280,
+              "level": "default",
+              "done": false,
+              "start": 1735402360280
+            }
+          },
+          {
+            "key": 1735402398648,
+            "children": [],
+            "todo": {
+              "content": "Use random typos",
+              "id": 1735402398648,
+              "level": "default",
+              "done": false,
+              "start": 1735402398648
+            }
+          },
+          {
+            "key": 1735402416046,
+            "children": [],
+            "todo": {
+              "content": "Use LM to generate similar reveiws",
+              "id": 1735402416046,
+              "level": "default",
+              "done": false,
+              "start": 1735402416046
+            }
+          },
+          {
+            "key": 1735402429016,
+            "children": [],
+            "todo": {
+              "content": "Use Word2Vec to swap words for similar one. Keep the gramatical correctness",
+              "id": 1735402429016,
+              "level": "default",
+              "done": false,
+              "start": 1735402429016
+            }
+          }
+        ],
+        "todo": {
+          "content": "Task 3",
+          "id": 1735402154790,
+          "level": "default",
+          "done": false,
+          "start": 1735402154790
+        }
+      },
+      {
+        "key": 1735402504085,
+        "children": [
+          {
+            "key": 1735403075527,
+            "children": [],
+            "todo": {
+              "content": "Solve the Riddles",
+              "id": 1735403075527,
+              "level": "default",
+              "done": false,
+              "start": 1735403075527
+            }
+          }
+        ],
+        "todo": {
+          "content": "Task 4",
+          "id": 1735402504085,
+          "level": "default",
+          "done": false,
+          "start": 1735402504085
+        }
+      }
+    ],
+    "expandKeys": [
+      1735401748993,
+      1735401942650,
+      1735402154790,
+      1735402360280,
+      1735402504085
+    ],
+    "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
+    "add_mode": "bottom",
+    "virtual": false,
+    "timelines": [],
+    "showLine": false,
+    "playFontSize": 24,
+    "title": "lab_3",
+    "autoSort": false,
+    "showEndTime": false,
+    "simpleMode": false,
+    "lang": "en",
+    "version": "1735403083379"
+  }
+}
