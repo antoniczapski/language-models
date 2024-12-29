@@ -1,7 +1,7 @@
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-class PapuGaPT2Handler:
+class LanguageModel:
     def __init__(self, model_name: str = "flax-community/papuGaPT2"):
         """
         Initializes the tokenizer and the model for papuGaPT2.
@@ -30,8 +30,8 @@ class PapuGaPT2Handler:
 
         # List-based conversation history (mix of user messages, assistant messages, and summaries).
         # We start with some example Q&A lines:
+        self.system_introduction = "Rozmowa użytkownika z asystentem AI (po polsku)."
         self.conversation_history = [
-            "Rozmowa użytkownika z asystentem AI (po polsku).",
             "[Streszczenie wcześniejszych interakcji: Użytkownik zadawał pytania o podstawowe fakty z geografii, historii, nauki i literatury. Asystent udzielił poprawnych i zwięzłych odpowiedzi.]",
 
             "Użytkownik: Jaka jest stolica Polski?",
@@ -42,13 +42,48 @@ class PapuGaPT2Handler:
 
             "Użytkownik: Kto napisał 'Lalkę'?",
             "Asystent: Powieść 'Lalka' napisał Bolesław Prus.",
+
+            "[Streszczenie wcześniejszych interakcji: Użytkownik zadał kilka pytań z dziedziny geografii, historii i nauk przyrodniczych. Asystent dostarczył jasne odpowiedzi dotyczące bitew, planet i zagadnień chemicznych.]",
+
+            "Użytkownik: Kiedy odbyła się Bitwa pod Grunwaldem?",
+            "Asystent: Bitwa pod Grunwaldem miała miejsce 15 lipca 1410 roku.",
+
+            "Użytkownik: Jaka planeta jest najbliżej Słońca?",
+            "Asystent: Najbliższą planetą Słońca jest Merkury.",
+
+            "Użytkownik: Ile wynosi pierwiastek kwadratowy z 144?",
+            "Asystent: Pierwiastek kwadratowy z 144 wynosi 12.",
+
+            "[Streszczenie wcześniejszych interakcji: Rozmowa obejmowała pytania matematyczne, chemiczne oraz ogólne zagadnienia z dziedziny biologii i fizyki. Odpowiedzi były precyzyjne i poprawne.]",
+
+            "Użytkownik: Kto namalował 'Mona Lisę'?",
+            "Asystent: Obraz 'Mona Lisa' namalował Leonardo da Vinci.",
+
+            "Użytkownik: Jakie są trzy stany skupienia materii?",
+            "Asystent: Trzy podstawowe stany skupienia materii to stały, ciekły i gazowy.",
+
+            "Użytkownik: Co to jest fotosynteza?",
+            "Asystent: Fotosynteza to proces, w którym rośliny przekształcają dwutlenek węgla i wodę w glukozę i tlen przy udziale światła słonecznego.",
+
+            "[Streszczenie wcześniejszych interakcji: Dyskusja poruszała zagadnienia z chemii, biologii i sztuki. Asystent odpowiadał krótko i rzeczowo na pytania użytkownika.]",
+
+            "Użytkownik: Jaki jest symbol chemiczny złota?",
+            "Asystent: Symbol chemiczny złota to Au.",
+
+            "Użytkownik: Ile nóg ma pająk?",
+            "Asystent: Pająk ma osiem nóg.",
+
+            "Użytkownik: Jakie jest najwyższe pasmo górskie na świecie?",
+            "Asystent: Najwyższym pasmem górskim na świecie są Himalaje.",
+
+            "[Streszczenie wcześniejszych interakcji: Poruszono tematy związane z chemią, zoologią i geografią fizyczną. Asystent udzielał precyzyjnych odpowiedzi.]"
         ]
 
         # Keep track of how many questions have been asked
         self.user_question_count = 3  # we have 3 user Q in the example
 
         # We'll keep a maximum number of recent lines (besides summary blocks)
-        self.MAX_RECENT_MESSAGES = 6  # keep last 6 user/assistant lines
+        self.MAX_RECENT_MESSAGES = 20  # keep last 6 user/assistant lines
 
     def sentence_probability(self, text: str, normalize: bool = True) -> float:
         """
@@ -83,7 +118,7 @@ class PapuGaPT2Handler:
         prompt: str,
         max_new_tokens: int = 50,
         num_return_sequences: int = 1,
-        temperature: float = 1.0,
+        temperature: float = 0.3,
         top_k: int = 50,
         top_p: float = 0.95
     ) -> list:
@@ -119,26 +154,9 @@ class PapuGaPT2Handler:
         Builds the final chat prompt from the conversation history.
         Keeps all summary blocks but only the last N user/assistant lines.
         """
-        # Keep summary blocks (they start with "[Streszczenie")
-        summaries = [line for line in self.conversation_history if line.startswith("[Streszczenie")]
-        # Non-summary lines
-        normal_lines = [
-            line for line in self.conversation_history
-            if not line.startswith("[Streszczenie") and not line.startswith("Rozmowa")
-        ]
-        # Opening line
-        opening = [line for line in self.conversation_history if line.startswith("Rozmowa")]
+        recent_conversation = self.conversation_history[-min(len(self.conversation_history),self.MAX_RECENT_MESSAGES):]
 
-        # Keep only last N lines of normal conversation
-        recent_normal = normal_lines[-self.MAX_RECENT_MESSAGES:]
-
-        final_lines = []
-        if opening:
-            final_lines.extend(opening)
-        final_lines.extend(summaries)
-        final_lines.extend(recent_normal)
-
-        return "\n".join(final_lines)
+        return "\n".join([self.system_introduction]+recent_conversation)
 
     def _build_summarization_prompt(self, lines_to_summarize: list) -> str:
         """
@@ -149,10 +167,48 @@ class PapuGaPT2Handler:
         summarization_prompt = (
             "Stwórz krótkie (2-3 zdania) podsumowanie ostatnich interakcji w języku polskim. "
             "Skup się na najważniejszych pytaniach i odpowiedziach, nie podawaj zbędnych szczegółów.\n\n"
+            "### Przykład 1:\n"
+            "Oto fragment rozmowy:\n"
+            "Użytkownik: Jakie są trzy stany skupienia materii?\n"
+            "Asystent: Trzy podstawowe stany skupienia materii to stały, ciekły i gazowy.\n"
+            "Użytkownik: Co to jest fotosynteza?\n"
+            "Asystent: Fotosynteza to proces, w którym rośliny przekształcają dwutlenek węgla i wodę w glukozę i tlen przy udziale światła słonecznego.\n"
+            "Użytkownik: Jaki jest symbol chemiczny złota?\n"
+            "Asystent: Symbol chemiczny złota to Au.\n"
+            "Użytkownik: Ile nóg ma pająk?\n"
+            "Asystent: Pająk ma osiem nóg.\n\n"
+            "Podsumowanie (2-3 zdania): Użytkownik pytał o stany skupienia materii, proces fotosyntezy, symbol chemiczny złota i liczbę nóg pająka. Asystent udzielił krótkich i precyzyjnych odpowiedzi.\n\n"
+            
+            "### Przykład 2:\n"
+            "Oto fragment rozmowy:\n"
+            "Użytkownik: Jaka jest stolica Polski?\n"
+            "Asystent: Stolicą Polski jest Warszawa.\n"
+            "Użytkownik: Gdzie znajduje się wieża Eiffla?\n"
+            "Asystent: Wieża Eiffla znajduje się w Paryżu, we Francji.\n"
+            "Użytkownik: Kto napisał 'Lalkę'?\n"
+            "Asystent: Powieść 'Lalka' napisał Bolesław Prus.\n"
+            "Użytkownik: Jakie jest największe jezioro na świecie?\n"
+            "Asystent: Największym jeziorem na świecie pod względem powierzchni jest Morze Kaspijskie.\n\n"
+            "Podsumowanie (2-3 zdania): Użytkownik zadawał pytania dotyczące stolicy Polski, położenia wieży Eiffla, autora 'Lalki' oraz największego jeziora na świecie. Asystent odpowiadał krótko i poprawnie.\n\n"
+            
+            "### Przykład 3:\n"
+            "Oto fragment rozmowy:\n"
+            "Użytkownik: Kiedy odbyła się Bitwa pod Grunwaldem?\n"
+            "Asystent: Bitwa pod Grunwaldem miała miejsce 15 lipca 1410 roku.\n"
+            "Użytkownik: Jaka planeta jest najbliżej Słońca?\n"
+            "Asystent: Najbliższą planetą Słońca jest Merkury.\n"
+            "Użytkownik: Ile wynosi pierwiastek kwadratowy z 144?\n"
+            "Asystent: Pierwiastek kwadratowy z 144 wynosi 12.\n"
+            "Użytkownik: Kto namalował 'Mona Lisę'?\n"
+            "Asystent: Obraz 'Mona Lisa' namalował Leonardo da Vinci.\n\n"
+            "Podsumowanie (2-3 zdania): Użytkownik pytał o Bitwę pod Grunwaldem, najbliższą planetę Słońca, pierwiastek kwadratowy z 144 oraz autora obrazu 'Mona Lisa'. Asystent dostarczył konkretne odpowiedzi.\n\n"
+            
+            "### Przykład 4:\n"
             "Oto fragment rozmowy:\n"
             f"{conversation_text}\n\n"
             "Podsumowanie (2-3 zdania):"
         )
+
         return summarization_prompt
 
     def _generate_summary(self, lines_for_summary: list) -> str:
@@ -168,39 +224,15 @@ class PapuGaPT2Handler:
             prompt=summary_prompt,
             max_new_tokens=80,   # up to 80 new tokens
             num_return_sequences=1,
-            temperature=0.7,     # a bit lower temperature for summarization
+            temperature=0.3,     # a bit lower temperature for summarization
             top_k=50,
             top_p=0.9
         )
-        summary_text = candidate_summaries[0]
+        summary_text = candidate_summaries[0].split(summary_prompt)[-1]
 
         # 3. Extract text after "Podsumowanie (2-3 zdania):" if it remains
-        if "Podsumowanie (2-3 zdania):" in summary_text:
-            summary_text = summary_text.split("Podsumowanie (2-3 zdania):")[-1].strip()
-
-        # 4. Validate length: let's do a simple check on total tokens or characters
-        if len(summary_text.split()) > 50:
-            # Try a second pass: reduce max_new_tokens or add a more forceful prompt
-            shorter_prompt = (
-                f"{summary_prompt}\n"
-                "Stwórz maksymalnie 30-wyrazowe podsumowanie w 2-3 zdaniach:"
-            )
-            second_try = self.generate_text(
-                prompt=shorter_prompt,
-                max_new_tokens=40,
-                temperature=0.7,
-                top_k=50,
-                top_p=0.9,
-                num_return_sequences=1
-            )
-            short_summary = second_try[0]
-            if "Stwórz maksymalnie 30-wyrazowe podsumowanie" in short_summary:
-                short_summary = short_summary.split("Stwórz maksymalnie 30-wyrazowe podsumowanie")[-1].strip()
-            # Use whichever is shorter
-            if len(short_summary.split()) < len(summary_text.split()):
-                summary_text = short_summary
-
-        return summary_text.strip()
+        summary_text = summary_text.split('\n')[0]
+        return summary_text
 
     def _add_summary_block(self) -> None:
         """
@@ -216,21 +248,19 @@ class PapuGaPT2Handler:
         lines_for_summary = normal_lines[-8:]  # summarize the last 8 lines
 
         summary_text = self._generate_summary(lines_for_summary)
-        summary_block = f"[Streszczenie: {summary_text}]"
+        summary_block = f"[Streszczenie wcześniejszych interakcji: {summary_text}]"
 
         # Append to conversation
         self.conversation_history.append(summary_block)
 
         # Print for user
-        print("\n[INFO] Nowe podsumowanie rozmowy:")
         print(summary_block)
-        print("-" * 60)
-
+        
     def get_response(
         self,
         user_question: str,
         max_new_tokens: int = 50,
-        temperature: float = 1.0,
+        temperature: float = 0.3,
         top_k: int = 50,
         top_p: float = 0.95
     ) -> str:
@@ -252,14 +282,14 @@ class PapuGaPT2Handler:
         prompt_before = self._build_prompt() + "\nAsystent:"
 
         # Generate 3 candidate completions
-        candidates = self.generate_text(
+        candidates = [self.generate_text(
             prompt=prompt_before,
             max_new_tokens=max_new_tokens,
-            num_return_sequences=3,
+            num_return_sequences=1,
             temperature=temperature,
             top_k=top_k,
             top_p=top_p
-        )
+        )[0].split(prompt_before)[-1] for _ in range(3)]
 
         # Evaluate each candidate for negative log-likelihood
         per_token_nlls = [
@@ -272,14 +302,12 @@ class PapuGaPT2Handler:
         best_candidate = candidates[best_idx]
 
         # Extract the newly generated portion after "Asystent:"
-        if "Asystent:" in best_candidate:
-            new_answer = best_candidate.split("Asystent:")[-1].strip()
-        else:
-            new_answer = best_candidate.strip()
+        new_answer = best_candidate.split('\n')[0].strip()
 
         # Add the final assistant line to conversation
         self.conversation_history.append(f"Asystent: {new_answer}")
 
+        print(f"Asystent: {new_answer}")
         # Every 3 user questions, insert a summary block (and print it)
         if self.user_question_count % 3 == 0:
             self._add_summary_block()
@@ -293,7 +321,9 @@ if __name__ == "__main__":
     - A conversation with a sliding history
     - Summaries are generated every 3 user questions with the same model.
     """
-    handler = PapuGaPT2Handler()
+    # model = "flax-community/papuGaPT2"
+    model = "eryk-mazus/polka-1.1b"
+    handler = LanguageModel(model_name=model)
 
     print("[INFO] Rozpoczęto konwersację z asystentem AI.\n")
     print("Historia konwersacji (startowa):")
@@ -302,10 +332,11 @@ if __name__ == "__main__":
     print("-" * 60)
 
     while True:
-        user_input = input("\nTy (Użytkownik): ")
-        if user_input.lower() in ["quit", "q", "exit"]:
-            print("Zakończono konwersację.")
+        try:
+            user_input = input("\nTy (Użytkownik): ")
+        except KeyboardInterrupt:
+            print("\n[INFO] Koniec konwersacji.")
             break
-
-        assistant_answer = handler.get_response(user_input)
-        print(f"Asystent: {assistant_answer}")
+        
+        handler.get_response(user_input)
+        

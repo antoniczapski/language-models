@@ -11,8 +11,10 @@
               "content": "Use language model to create chatbot",
               "id": 1735399244183,
               "level": "default",
-              "done": false,
-              "start": 1735399244183
+              "done": true,
+              "start": 1735399244183,
+              "focus": false,
+              "end": 1735498394116
             }
           },
           {
@@ -22,8 +24,10 @@
               "content": "Generate more than one answer and chose the best with heuristic",
               "id": 1735399305946,
               "level": "default",
-              "done": false,
-              "start": 1735399305946
+              "done": true,
+              "start": 1735399305946,
+              "focus": false,
+              "end": 1735498393198
             }
           },
           {
@@ -33,8 +37,10 @@
               "content": "Deal with history",
               "id": 1735399365704,
               "level": "default",
-              "done": false,
-              "start": 1735399365704
+              "done": true,
+              "start": 1735399365704,
+              "focus": false,
+              "end": 1735498392246
             }
           }
         ],
@@ -42,8 +48,10 @@
           "content": "Task 1",
           "id": 1735398906235,
           "level": "default",
-          "done": false,
-          "start": 1735398906235
+          "done": true,
+          "start": 1735398906235,
+          "focus": false,
+          "end": 1735498395169
         }
       },
       {
@@ -166,7 +174,8 @@
       1735398906235,
       1735399488413,
       1735399616438,
-      1735399792406
+      1735399792406,
+      1735399365704
     ],
     "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
     "add_mode": "bottom",
@@ -179,6 +188,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1735399876593"
+    "version": "1735498395443"
   }
 }
