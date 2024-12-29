@@ -4,6 +4,7 @@ import os
 from typing import List, Tuple
 import re
 from tqdm import tqdm
+import torch.nn.functional as F
 
 class LanguageModel:
     def __init__(self, model_name: str = "eryk-mazus/polka-1.1b"):
@@ -106,6 +107,77 @@ class LanguageModel:
             for out_id in outputs
         ]
         return generated_texts[0].split(prompt)[-1].strip()
+    
+    def generate_text_with_allowed_tokens(
+        self,
+        prompt: str,
+        allowed_tokens: list[str],
+        max_new_tokens: int = 50,
+        temperature: float = 1.0
+    ) -> str:
+        """
+        Generates text from the language model, but restricts sampling
+        to only those tokens present in 'allowed_tokens'.
+        
+        :param prompt:          The input prompt string.
+        :param allowed_tokens:  A list of strings, each assumed to be 
+                                a single token or symbol. Only these 
+                                tokens will have non-zero probability.
+        :param max_new_tokens:  Maximum tokens to generate.
+        :param temperature:     Sampling temperature.
+        :return: The newly generated text (excluding the original prompt).
+        """
+        # Convert the prompt to input_ids
+        inputs = self.tokenizer(prompt, return_tensors="pt")
+        input_ids = inputs["input_ids"].to(self.device)
+        
+        # Build a set of allowed token IDs
+        allowed_ids = set()
+        for tok in allowed_tokens:
+            # We assume each 'tok' is basically one token. If multiple tokens, you need more logic.
+            enc = self.tokenizer.encode(tok, add_special_tokens=False)
+            for e in enc:
+                allowed_ids.add(e)
+        
+        generated = input_ids.clone()  # we keep track of the growing sequence
+        
+        for _ in range(max_new_tokens):
+            # Forward pass
+            outputs = self.model(generated)
+            logits = outputs.logits[:, -1, :]  # shape: [batch=1, vocab_size]
+
+            # Mask out disallowed tokens by assigning -inf to their logits
+            # We'll do the inverse: set everything to -inf, then restore allowed tokens
+            new_logits = torch.full_like(logits, float('-inf'))
+            # Only keep allowed IDs
+            for tid in allowed_ids:
+                new_logits[0, tid] = logits[0, tid]
+            
+            # Apply temperature
+            if temperature > 0:
+                new_logits = new_logits / temperature
+
+            # Convert to probabilities
+            probs = F.softmax(new_logits, dim=-1)
+
+            # Sample (or pick argmax if temperature=0)
+            next_token = torch.multinomial(probs, num_samples=1)
+
+            # Append next token
+            generated = torch.cat([generated, next_token], dim=1)
+
+            # Optional: break if we hit special tokens like EOS
+            # if next_token.item() == self.tokenizer.eos_token_id:
+            #     break
+
+        # Decode the entire sequence
+        full_text = self.tokenizer.decode(generated[0], skip_special_tokens=True)
+        
+        # Return only the newly generated text after the prompt
+        # (strip prompt from the front).
+        # One simple approach:
+        new_part = full_text[len(prompt):].strip()
+        return new_part
 
 def load_qa_pairs(questions_file: str, answers_file: str) -> List[Tuple[str, List[str]]]:
     """

@@ -11,8 +11,10 @@
               "content": "Użyć modelu 100M - 1B do działań arytmetycznych",
               "id": 1735400316936,
               "level": "default",
-              "done": false,
-              "start": 1735400316936
+              "done": true,
+              "start": 1735400316936,
+              "focus": false,
+              "end": 1735511990969
             }
           },
           {
@@ -22,8 +24,10 @@
               "content": "Pokazać, że wyniki są lepsze niż losowe",
               "id": 1735400340763,
               "level": "default",
-              "done": false,
-              "start": 1735400340764
+              "done": true,
+              "start": 1735400340764,
+              "focus": false,
+              "end": 1735511990295
             }
           },
           {
@@ -33,8 +37,10 @@
               "content": "Żetelnie spisać wnioski",
               "id": 1735400364547,
               "level": "default",
-              "done": false,
-              "start": 1735400364547
+              "done": true,
+              "start": 1735400364547,
+              "focus": false,
+              "end": 1735511989098
             }
           },
           {
@@ -44,8 +50,10 @@
               "content": "(bonus) znaleźć bias",
               "id": 1735400373897,
               "level": "default",
-              "done": false,
-              "start": 1735400373897
+              "done": true,
+              "start": 1735400373897,
+              "focus": false,
+              "end": 1735511984668
             }
           }
         ],
@@ -53,8 +61,10 @@
           "content": "Task 1",
           "id": 1735400177172,
           "level": "default",
-          "done": false,
-          "start": 1735400177172
+          "done": true,
+          "start": 1735400177172,
+          "focus": false,
+          "end": 1735511991722
         }
       },
       {
@@ -78,8 +88,10 @@
               "content": "Napisz niezachłanny algorytm do znajdowania właściwego zdania z ciągu zbiorów  słów",
               "id": 1735400698873,
               "level": "default",
-              "done": false,
-              "start": 1735400698873
+              "done": true,
+              "start": 1735400698873,
+              "focus": false,
+              "end": 1735511968388
             }
           }
         ],
@@ -87,8 +99,10 @@
           "content": "Task 3",
           "id": 1735400524519,
           "level": "default",
-          "done": false,
-          "start": 1735400524519
+          "done": true,
+          "start": 1735400524519,
+          "focus": false,
+          "end": 1735511969592
         }
       },
       {
@@ -164,6 +178,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1735400944655"
+    "version": "1735511991946"
   }
 }

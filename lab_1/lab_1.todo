@@ -144,8 +144,10 @@
               "content": "Rozwiąż question-answering z użyciem LM - https://2021.poleval.pl/",
               "id": 1735399796496,
               "level": "default",
-              "done": false,
-              "start": 1735399796496
+              "done": true,
+              "start": 1735399796496,
+              "focus": false,
+              "end": 1735506704993
             }
           },
           {
@@ -155,8 +157,10 @@
               "content": "Użyj heurystyki",
               "id": 1735399837869,
               "level": "default",
-              "done": false,
-              "start": 1735399837869
+              "done": true,
+              "start": 1735399837869,
+              "focus": false,
+              "end": 1735506705789
             }
           },
           {
@@ -166,8 +170,10 @@
               "content": "Użyj obliczania prawdopodobieństw",
               "id": 1735399847940,
               "level": "default",
-              "done": false,
-              "start": 1735399847940
+              "done": true,
+              "start": 1735399847940,
+              "focus": false,
+              "end": 1735506707237
             }
           }
         ],
@@ -175,8 +181,10 @@
           "content": "Task 4",
           "id": 1735399792406,
           "level": "default",
-          "done": false,
-          "start": 1735399792406
+          "done": true,
+          "start": 1735399792406,
+          "focus": false,
+          "end": 1735506694638
         }
       }
     ],
@@ -200,6 +208,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1735502808862"
+    "version": "1735506707508"
   }
 }
