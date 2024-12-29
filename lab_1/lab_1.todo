@@ -64,8 +64,10 @@
               "content": "Znajdź właściwe uszeregowanie bag-of-words w zdanie - zachłannie",
               "id": 1735399495144,
               "level": "default",
-              "done": false,
-              "start": 1735399495144
+              "done": true,
+              "start": 1735399495144,
+              "focus": false,
+              "end": 1735500250211
             }
           },
           {
@@ -75,8 +77,10 @@
               "content": "Znajdź właściwe uszeregowanie bag-of-words w zdanie - używając jedynie kombinacji par",
               "id": 1735399537274,
               "level": "default",
-              "done": false,
-              "start": 1735399537274
+              "done": true,
+              "start": 1735399537274,
+              "focus": false,
+              "end": 1735500251201
             }
           }
         ],
@@ -84,8 +88,10 @@
           "content": "Task 2",
           "id": 1735399488413,
           "level": "default",
-          "done": false,
-          "start": 1735399488413
+          "done": true,
+          "start": 1735399488413,
+          "focus": false,
+          "end": 1735500248333
         }
       },
       {
@@ -188,6 +194,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1735498395443"
+    "version": "1735500252108"
   }
 }
