@@ -1,5 +1,9 @@
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
+import os
+from typing import List, Tuple
+import re
+from tqdm import tqdm
 
 class LanguageModel:
     def __init__(self, model_name: str = "eryk-mazus/polka-1.1b"):
@@ -74,20 +78,100 @@ class LanguageModel:
         attention_mask = inputs["attention_mask"].to(self.device)
 
         with torch.no_grad():
-            outputs = self.model.generate(
-                input_ids=input_ids,
-                attention_mask=attention_mask,
-                max_new_tokens=max_new_tokens,
-                num_return_sequences=1,
-                temperature=temperature,
-                top_k=top_k,
-                top_p=top_p,
-                do_sample=True,
-                pad_token_id=self.tokenizer.pad_token_id
-            )
+            if temperature == 0.0:
+                do_sample=False
+                outputs = self.model.generate(
+                    input_ids=input_ids,
+                    attention_mask=attention_mask,
+                    max_length=input_ids.shape[1] + max_new_tokens,
+                    num_return_sequences=1,
+                    do_sample=do_sample,
+                    pad_token_id=self.tokenizer.pad_token_id
+                )
+            else:
+                outputs = self.model.generate(
+                    input_ids=input_ids,
+                    attention_mask=attention_mask,
+                    max_new_tokens=max_new_tokens,
+                    num_return_sequences=1,
+                    temperature=temperature,
+                    top_k=top_k,
+                    top_p=top_p,
+                    do_sample=True,
+                    pad_token_id=self.tokenizer.pad_token_id
+                )
 
         generated_texts = [
             self.tokenizer.decode(out_id, skip_special_tokens=True)
             for out_id in outputs
         ]
-        return generated_texts.split(prompt)[-1]
+        return generated_texts[0].split(prompt)[-1].strip()
+
+def load_qa_pairs(questions_file: str, answers_file: str) -> List[Tuple[str, List[str]]]:
+    """
+    Loads questions and their corresponding answers from the provided text files.
+
+    :param questions_file: Path to the questions.txt file.
+    :param answers_file: Path to the answers.txt file.
+    :return: A list of tuples where each tuple contains a question and a list of its answers.
+    """
+    if not os.path.isfile(questions_file):
+        raise FileNotFoundError(f"Questions file not found: {questions_file}")
+    if not os.path.isfile(answers_file):
+        raise FileNotFoundError(f"Answers file not found: {answers_file}")
+
+    with open(questions_file, 'r', encoding='utf-8') as qf:
+        questions = [line.strip() for line in qf if line.strip()]
+    
+    with open(answers_file, 'r', encoding='utf-8') as af:
+        answers = [line.strip() for line in af if line.strip()]
+    
+    if len(questions) != len(answers):
+        raise ValueError("The number of questions and answers must be the same.")
+
+    qa_pairs = []
+    for q, a in zip(questions, answers):
+        # Split multiple answers separated by tabs
+        answer_list = [ans.strip().lower() for ans in a.split('\t') if ans.strip()]
+        qa_pairs.append((q, answer_list))
+    
+    return qa_pairs
+
+
+def evaluate_model(qa_pairs: List[Tuple[str, List[str]]], generate_answer_func) -> float:
+    """
+    Evaluates the language model's performance on the given question-answer pairs.
+
+    :param qa_pairs: List of tuples containing questions and their list of correct answers.
+    :param handler: An instance of the language model handler with `sentence_probability` method.
+    :param generate_answer_func: Function to generate an answer given a question.
+    :param normalize: Whether to normalize text (e.g., lowercase) before comparison.
+    :return: Accuracy as a float representing the proportion of correct answers.
+    """
+    correct = 0
+    total = len(qa_pairs)
+
+    for idx, (question, correct_answers) in tqdm(enumerate(qa_pairs, 1)):
+        # Generate answer using the provided function
+        generated_answer = generate_answer_func(question)
+        
+        # Normalize answers if required
+        generated_answer_norm = generated_answer.strip().lower()
+        correct_answers_norm = [ans.lower() for ans in correct_answers]
+        
+        # Check if generated answer is among the correct answers
+        if generated_answer_norm in correct_answers_norm:
+            correct += 1
+            result = "Correct"
+        else:
+            result = "Incorrect"
+        
+        # print(f"Q{idx}: {question}")
+        # print(f"Generated Answer: {generated_answer}")
+        # print(f"Expected Answers: {', '.join(correct_answers)}")
+        # print(f"Result: {result}\n")
+    
+    accuracy = correct / total if total > 0 else 0.0
+    print(f"Evaluation Complete: {correct}/{total} correct answers.")
+    print(f"Accuracy: {accuracy*100:.2f}%")
+    return accuracy

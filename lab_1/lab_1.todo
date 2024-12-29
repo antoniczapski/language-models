@@ -104,8 +104,10 @@
               "content": "Sprawdź wydźwięk danego zdania używając LM do wyznaczania prawdopodobieństwa zdania",
               "id": 1735399621809,
               "level": "default",
-              "done": false,
-              "start": 1735399621809
+              "done": true,
+              "start": 1735399621809,
+              "focus": false,
+              "end": 1735502804613
             }
           },
           {
@@ -115,8 +117,10 @@
               "content": "Przetestuj kilka rodzajów 'promptów' na danych testowych",
               "id": 1735399673111,
               "level": "default",
-              "done": false,
-              "start": 1735399673111
+              "done": true,
+              "start": 1735399673111,
+              "focus": false,
+              "end": 1735502803796
             }
           }
         ],
@@ -124,8 +128,10 @@
           "content": "Task 3",
           "id": 1735399616438,
           "level": "default",
-          "done": false,
-          "start": 1735399616438
+          "done": true,
+          "start": 1735399616438,
+          "focus": false,
+          "end": 1735502808564
         }
       },
       {
@@ -194,6 +200,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1735500252108"
+    "version": "1735502808862"
   }
 }
