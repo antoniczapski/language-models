@@ -7,7 +7,7 @@ from tqdm import tqdm
 import torch.nn.functional as F
 
 class LanguageModel:
-    def __init__(self, model_name: str = "eryk-mazus/polka-1.1b"):
+    def __init__(self, model_name: str = "eryk-mazus/polka-1.1b", device: str = 'cuda:0'):
         """
         Initializes the tokenizer and the model for papuGaPT2.
         Adds a sliding-window conversation approach.
@@ -15,7 +15,7 @@ class LanguageModel:
         using a special summarization prompt, then appended to the conversation.
         """
         print(f"[INFO] Loading model: {model_name}")
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        self.device = torch.device(device if torch.cuda.is_available() else "cpu")
         print(f"[INFO] Using device: {self.device}")
 
         # Load tokenizer and model
@@ -111,73 +111,93 @@ class LanguageModel:
     def generate_text_with_allowed_tokens(
         self,
         prompt: str,
+        allowed_ids: list[int],
         allowed_tokens: list[str],
         max_new_tokens: int = 50,
-        temperature: float = 1.0
+        temperature: float = 0.3
     ) -> str:
         """
         Generates text from the language model, but restricts sampling
         to only those tokens present in 'allowed_tokens'.
         
-        :param prompt:          The input prompt string.
-        :param allowed_tokens:  A list of strings, each assumed to be 
-                                a single token or symbol. Only these 
-                                tokens will have non-zero probability.
-        :param max_new_tokens:  Maximum tokens to generate.
-        :param temperature:     Sampling temperature.
-        :return: The newly generated text (excluding the original prompt).
+        Each token in 'allowed_tokens' is typically something from the tokenizer's vocab 
+        (like 'proszę', 'Ġposła', etc.). If the token is multi-BPE, you'd need more logic.
         """
-        # Convert the prompt to input_ids
-        inputs = self.tokenizer(prompt, return_tensors="pt")
+        # 1) Encode the prompt
+        inputs = self.tokenizer(prompt, return_tensors="pt", add_special_tokens=False)
         input_ids = inputs["input_ids"].to(self.device)
         
-        # Build a set of allowed token IDs
+
+        # 2) Build a set of allowed token IDs
+        # allowed_ids = set(allowed_ids)
+
         allowed_ids = set()
         for tok in allowed_tokens:
-            # We assume each 'tok' is basically one token. If multiple tokens, you need more logic.
+            # Potentially strip 'Ġ' if your tokens are stored without it in code,
+            # but your vocab might have it. 
+            # We'll just assume 'tok' is exactly in vocab form.
             enc = self.tokenizer.encode(tok, add_special_tokens=False)
             for e in enc:
                 allowed_ids.add(e)
+
+        # 3) Start iterative generation
+        generated = input_ids.clone()
         
-        generated = input_ids.clone()  # we keep track of the growing sequence
-        
-        for _ in range(max_new_tokens):
+        for step in range(max_new_tokens):
             # Forward pass
             outputs = self.model(generated)
-            logits = outputs.logits[:, -1, :]  # shape: [batch=1, vocab_size]
+            logits = outputs.logits[:, -1, :]  # shape: [1, vocab_size]
 
-            # Mask out disallowed tokens by assigning -inf to their logits
-            # We'll do the inverse: set everything to -inf, then restore allowed tokens
+            # Create new logits
             new_logits = torch.full_like(logits, float('-inf'))
-            # Only keep allowed IDs
+            
+            # Restore logits only for allowed ids
             for tid in allowed_ids:
                 new_logits[0, tid] = logits[0, tid]
             
-            # Apply temperature
+            # Optionally apply temperature
             if temperature > 0:
                 new_logits = new_logits / temperature
+            else:
+                # If temperature==0, do greedy
+                next_token = torch.argmax(new_logits, dim=-1, keepdim=True)
+                generated = torch.cat([generated, next_token], dim=1)
+                
+                # Optional early break if next_token == <eos>
+                # if next_token.item() == self.tokenizer.eos_token_id:
+                #     break
+                continue
 
             # Convert to probabilities
             probs = F.softmax(new_logits, dim=-1)
 
-            # Sample (or pick argmax if temperature=0)
+            # Sample from the distribution
             next_token = torch.multinomial(probs, num_samples=1)
-
-            # Append next token
+            
+            # assert if next token is not in allowed tokens
+            assert next_token.item() in allowed_ids, f"Token {next_token.item()} not in allowed tokens."
+            
+            # Append
             generated = torch.cat([generated, next_token], dim=1)
 
-            # Optional: break if we hit special tokens like EOS
+            # (Optional) check if it's EOS
             # if next_token.item() == self.tokenizer.eos_token_id:
             #     break
 
-        # Decode the entire sequence
+        # 4) Decode
         full_text = self.tokenizer.decode(generated[0], skip_special_tokens=True)
         
-        # Return only the newly generated text after the prompt
-        # (strip prompt from the front).
-        # One simple approach:
-        new_part = full_text[len(prompt):].strip()
-        return new_part
+        # Optional debug prints
+        # print("DEBUG: full_text ->", repr(full_text))
+        # print("DEBUG: prompt ->", repr(prompt))
+
+        # 5) Return newly generated text
+        # A safer approach is to decode only the *new tokens*, e.g.:
+        new_tokens_ids = generated[0, input_ids.shape[1]:]  # the slice after the prompt
+        new_part = self.tokenizer.decode(new_tokens_ids, skip_special_tokens=True)
+
+        return new_part.strip()
+
 
 def load_qa_pairs(questions_file: str, answers_file: str) -> List[Tuple[str, List[str]]]:
     """
