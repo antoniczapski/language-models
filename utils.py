@@ -20,6 +20,7 @@ class LanguageModel:
 
         # Load tokenizer and model
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+        self.reversed_vocab = {v: k for k, v in self.tokenizer.get_vocab().items()}
         self.model = AutoModelForCausalLM.from_pretrained(model_name)
 
         # If no pad token is defined, add a new one:
@@ -185,7 +186,7 @@ class LanguageModel:
             #     break
 
         # 4) Decode
-        full_text = self.tokenizer.decode(generated[0], skip_special_tokens=True)
+        # full_text = self.tokenizer.decode(generated[0], skip_special_tokens=True)
         
         # Optional debug prints
         # print("DEBUG: full_text ->", repr(full_text))
@@ -194,9 +195,9 @@ class LanguageModel:
         # 5) Return newly generated text
         # A safer approach is to decode only the *new tokens*, e.g.:
         new_tokens_ids = generated[0, input_ids.shape[1]:]  # the slice after the prompt
-        new_part = self.tokenizer.decode(new_tokens_ids, skip_special_tokens=True)
+        return new_tokens_ids
 
-        return new_part.strip()
+        # return new_part
 
 
 def load_qa_pairs(questions_file: str, answers_file: str) -> List[Tuple[str, List[str]]]:
