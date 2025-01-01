@@ -1,0 +1,600 @@
+Riddle: rękopiśmienny tekst lub dokument, niepublikowany drukiem.
+Answer: ['pieśń', 'pieśń', 'list', 'tek', 'apel']
+Correct Answer: manuskrypt
+Correct? False
+Score: 0/1 - 0.0
+--------------------------------------------------
+Riddle: stan emocjonalny charakteryzujący się radością, życzliwością i łatwością w wywoływaniu uśmiechu.
+Answer: ['optymizm', 'zachwyt', 'euforia', 'szczęście', 'euforia']
+Correct Answer: wesołość
+Correct? False
+Score: 0/2 - 0.0
+--------------------------------------------------
+Riddle: opowieść lub historia przekazywana ustnie lub pisaną, często ze zmyślonymi lub niepotwierdzonymi elementami, która ma na celu przekazanie ważnych wartości, nauk, czy też przekonań.
+Answer: ['bajka', 'baśń', 'baśń', 'legend', 'baśń']
+Correct Answer: legenda
+Correct? False
+Score: 0/3 - 0.0
+--------------------------------------------------
+Riddle: postawa, przekonania lub działania mające na celu dyskryminację, prześladowanie lub nienawiść wobec żydów jako grupy etnicznej, religijnej lub kulturowej.
+Answer: ['antysemityzm', 'antysemityzm', 'antysemityzm', 'antysemityzm', 'antysemityzm']
+Correct Answer: antysemityzm
+Correct? True
+Score: 1/4 - 0.25
+--------------------------------------------------
+Riddle: proces rejestracji obrazu i dźwięku za pomocą kamery w celu tworzenia filmu.
+Answer: ['rejestracja', 'film', 'film', 'film', 'film']
+Correct Answer: filmowanie
+Correct? False
+Score: 1/5 - 0.2
+--------------------------------------------------
+Riddle: aktywność polegająca na zanurzaniu się pod wodę, zazwyczaj za pomocą sprzętu oddechowego, w celu eksploracji podwodnego świata.
+Answer: ['nur', 'nur', 'nur', 'nur', 'nur']
+Correct Answer: nurkowanie
+Correct? False
+Score: 1/6 - 0.16666666666666666
+--------------------------------------------------
+Riddle: treść, wypowiedź lub zachowanie pozbawione sensu, logicznego uzasadnienia lub sensownego znaczenia.
+Answer: ['bzdura', 'ciemność', 'żart', 'kicz', 'ironia']
+Correct Answer: nonsens
+Correct? False
+Score: 1/7 - 0.14285714285714285
+--------------------------------------------------
+Riddle: formalne odmówienie zgody na podjęcie określonej decyzji lub działania, stosowane w celu zablokowania lub opóźnienia procesu decyzyjnego.
+Answer: ['odmowa', 'odmowa', 'prawo', 'odmowa', 'rezygnacja']
+Correct Answer: weto
+Correct? False
+Score: 1/8 - 0.125
+--------------------------------------------------
+Riddle: osoba, która zabiera głos publicznie w celu wygłoszenia przemówienia, wystąpienia lub prezentacji.
+Answer: ['przemówienie', 'publicysta', 'mon', 'polityk', 'mówca']
+Correct Answer: mówca
+Correct? True
+Score: 2/9 - 0.2222222222222222
+--------------------------------------------------
+Riddle: system instytucji oraz procedur, które zajmują się rozstrzyganiem sporów oraz wymiarem sprawiedliwości na podstawie prawa.
+Answer: ['sądownictwo', 'rzecznik', 'sąd', 'sądownictwo', 'sądownictwo']
+Correct Answer: sądownictwo
+Correct? True
+Score: 3/10 - 0.3
+--------------------------------------------------
+Riddle: ocena lub opinia wyrażana na temat czegoś lub kogoś, wynikająca z analizy i rozważenia faktów lub sytuacji.
+Answer: ['ocena', 'opinia', 'ocena', 'opinia', 'opinia']
+Correct Answer: osąd
+Correct? False
+Score: 3/11 - 0.2727272727272727
+--------------------------------------------------
+Riddle: początkowy moment lub etap, rozpoczęcie czegoś nowego lub aktywność inicjująca.
+Answer: ['początek', 'rewolucja', 'początek', 'nowość', 'początek']
+Correct Answer: start
+Correct? False
+Score: 3/12 - 0.25
+--------------------------------------------------
+Riddle: lub wyrażenie mające podobne znaczenie do innego wyrazu lub wyrażenia.
+Answer: ['meta', 'komentarz', 'tenis', 'przymiot', 'euforia']
+Correct Answer: synonim
+Correct? False
+Score: 3/13 - 0.23076923076923078
+--------------------------------------------------
+Riddle: zbiór utworów, dzieł lub sztuk scenicznych prezentowanych przez danego artystę lub zespół w określonym czasie i miejscu.
+Answer: ['spektakl', 'spektakl', 'spektakl', 'opera', 'spektakl']
+Correct Answer: repertuar
+Correct? False
+Score: 3/14 - 0.21428571428571427
+--------------------------------------------------
+Riddle: polisacharyd będący głównym składnikiem strukturalnym ścian komórkowych roślin.
+Answer: ['białko', 'fosfor', 'białko', 'białko', 'białko']
+Correct Answer: celuloza
+Correct? False
+Score: 3/15 - 0.2
+--------------------------------------------------
+Riddle: bardzo mała ilość płynu o kulistym kształcie.
+Answer: ['lek', 'ślina', 'kropla', 'kropl', 'ropa']
+Correct Answer: kropla
+Correct? True
+Score: 4/16 - 0.25
+--------------------------------------------------
+Riddle: neurobiologiczny zaburzenie rozwoju, które objawia się trudnościami w komunikacji społecznej, uporządkowanym zachowaniu oraz ograniczonych zainteresowaniach i aktywnościach.
+Answer: ['aut', 'aut', 'aut', 'aut', 'aut']
+Correct Answer: autyzm
+Correct? False
+Score: 4/17 - 0.23529411764705882
+--------------------------------------------------
+Riddle: francuska marka samochodów, założona w 1919 roku przez andré citroëna, znana z innowacyjnego designu i nowatorskich rozwiązań technicznych.
+Answer: ['citroen', 'citroen', 'citroen', 'citroen', 'citroen']
+Correct Answer: citroen
+Correct? True
+Score: 5/18 - 0.2777777777777778
+--------------------------------------------------
+Riddle: zdolność lub skłonność do efektywnej wymiany informacji, myśli i uczuć między osobami lub grupami ludzi.
+Answer: ['komunikacja', 'komunikacja', 'komunikacja', 'komunikacja', 'komunikacja']
+Correct Answer: komunikatywność
+Correct? False
+Score: 5/19 - 0.2631578947368421
+--------------------------------------------------
+Riddle: is a peripheral device used for inputting text and commands into a computer or other electronic device by pressing keys.
+Answer: ['keyboard', 'keyboard', 'klawiatura', 'monitor', 'keyboard']
+Correct Answer: keyboard
+Correct? True
+Score: 6/20 - 0.3
+--------------------------------------------------
+Riddle: operacja wojskowa polegająca na desantowaniu z powietrza, morza lub lądu sił zbrojnych celem szybkiego i zaskakującego ataku na nieprzyjaciela.
+Answer: ['desant', 'szturm', 'desant', 'desant', 'desant']
+Correct Answer: desant
+Correct? True
+Score: 7/21 - 0.3333333333333333
+--------------------------------------------------
+Riddle: sytuacja, która wymaga rozwiązania lub decyzji, zazwyczaj wiążąca się z trudnościami lub wyzwaniami do pokonania.
+Answer: ['konflikt', 'sytuacja', 'konflikt', 'kryzys', 'problem']
+Correct Answer: problem
+Correct? True
+Score: 8/22 - 0.36363636363636365
+--------------------------------------------------
+Riddle: forma przekazywania wiedzy i umiejętności, mająca na celu nauczanie, szkolenie lub udzielanie instrukcji praktycznych w określonym zakresie tematycznym.
+Answer: ['instruktor', 'szkolenie', 'instruktor', 'nauczyciel', 'szkolenie']
+Correct Answer: instruktaż
+Correct? False
+Score: 8/23 - 0.34782608695652173
+--------------------------------------------------
+Riddle: osoba zajmująca się badaniem struktury, historii i zastosowań języków, a także relacji między nimi.
+Answer: ['język', 'język', 'język', 'język', 'język']
+Correct Answer: językoznawca
+Correct? False
+Score: 8/24 - 0.3333333333333333
+--------------------------------------------------
+Riddle: miejsce, w którym przechowywane są towary do momentu ich dalszego przetworzenia lub sprzedaży.
+Answer: ['mag', 'mag', 'składa', 'hurt', 'mag']
+Correct Answer: skład
+Correct? False
+Score: 8/25 - 0.32
+--------------------------------------------------
+Riddle: fizyczny przycisk na klawiaturze lub innym urządzeniu, który po naciśnięciu wywołuje konkretne działanie lub wprowadza konkretny znak tekstowy.
+Answer: ['klawisz', 'klawisz', 'klawiatura', 'klawisz', 'klawisz']
+Correct Answer: klawisz
+Correct? True
+Score: 9/26 - 0.34615384615384615
+--------------------------------------------------
+Riddle: wydzielona część drogi przeznaczona dla pieszych.
+Answer: ['chodnik', 'chodnik', 'droga', 'chodnik', 'pas']
+Correct Answer: chodnik
+Correct? True
+Score: 10/27 - 0.37037037037037035
+--------------------------------------------------
+Riddle: krótka treść, zwykle zawierająca imię, nazwisko, stanowisko lub inne dane osobowe, umieszczana na końcu wiadomości e-mailowej lub posta na forum internetowym.
+Answer: ['wiadomość', 'email', 'email', 'ban', 'treść']
+Correct Answer: sygnaturka
+Correct? False
+Score: 10/28 - 0.35714285714285715
+--------------------------------------------------
+Riddle: element infrastruktury transportowej służący do prowadzenia pojazdów na określonym torze, przeważnie wykonany z metalu.
+Answer: ['tor', 'tor', 'tor', 'tor', 'pierścień']
+Correct Answer: szyna
+Correct? False
+Score: 10/29 - 0.3448275862068966
+--------------------------------------------------
+Riddle: reakcja organizmu na sytuacje wymagające adaptacji lub reakcji, związana z emocjonalnym napięciem i wysiłkiem fizycznym lub psychicznym.
+Answer: ['strach', 'euforia', 'adaptacja', 'wyciek', 'przyspieszenie']
+Correct Answer: stres
+Correct? False
+Score: 10/30 - 0.3333333333333333
+--------------------------------------------------
+Riddle: proces nawiązywania i podtrzymywania relacji międzyludzkich poprzez interakcje, komunikację i wspólne działania.
+Answer: ['relacja', 'komunikacja', 'komunikacja', 'związek', 'przyjaźń']
+Correct Answer: obcowanie
+Correct? False
+Score: 10/31 - 0.3225806451612903
+--------------------------------------------------
+Riddle: przynależność do określonej grupy ludzi posiadającej wspólne cechy kulturowe, historyczne i językowe, które identyfikują się ze wspólnym pochodzeniem etnicznym lub geograficznym.
+Answer: ['narodowość', 'etyka', 'etyka', 'narodowość', 'narodowość']
+Correct Answer: narodowość
+Correct? True
+Score: 11/32 - 0.34375
+--------------------------------------------------
+Riddle: część drogi przeznaczona do poruszania się pojazdów.
+Answer: ['droga', 'droga', 'droga', 'droga', 'droga']
+Correct Answer: przejazd
+Correct? False
+Score: 11/33 - 0.3333333333333333
+--------------------------------------------------
+Riddle: procedura rejestrowania i sprawdzania pasażerów oraz ich bagaży przed lotem lub podróżą pociągiem.
+Answer: ['odprawa', 'kontrola', 'rejestracja', 'kontrola', 'kontrola']
+Correct Answer: odprawa
+Correct? True
+Score: 12/34 - 0.35294117647058826
+--------------------------------------------------
+Riddle: stan, w którym organizm lub umysł staje się zależny od substancji lub działania, co prowadzi do silnego pragnienia i trudności w kontrolowaniu zachowań.
+Answer: ['uzależnienie', 'uzależnienie', 'szaleństwo', 'alkohol', 'uzależnienie']
+Correct Answer: uzależnienie
+Correct? True
+Score: 13/35 - 0.37142857142857144
+--------------------------------------------------
+Riddle: włoskie określenie oznaczające ""sól"". może odnosić się do klasycznej soli kuchennej lub do innych rodzajów soli wykorzystywanych w produkcji żywności.
+Answer: ['sol', 'sól', 'sol', 'sol', 'sol']
+Correct Answer: sola
+Correct? False
+Score: 13/36 - 0.3611111111111111
+--------------------------------------------------
+Riddle: uznanie lub zatwierdzenie prawdziwości lub istnienia czegoś.
+Answer: ['świadek', 'pochwała', 'werdykt', 'werdykt', 'legitymacja']
+Correct Answer: potwierdzenie
+Correct? False
+Score: 13/37 - 0.35135135135135137
+--------------------------------------------------
+Riddle: płynna część krwi, w której znajdują się substancje odżywcze, białka, hormony, przeciwciała oraz inne składniki niezbędne do transportu składników odżywczych i tlenu oraz usuwania produktów przemiany materii.
+Answer: ['erotyk', 'osocze', 'krew', 'krwawienie', 'krew']
+Correct Answer: osocze
+Correct? True
+Score: 14/38 - 0.3684210526315789
+--------------------------------------------------
+Riddle: stan społeczny, charakteryzujący się brakiem centralnego rządu lub władzy, gdzie jednostki działają w sposób samodzielny i autonomiczny, niepodporządkowując się żadnym instytucjom czy normom.
+Answer: ['wolność', 'sam', 'autonomia', 'anarchia', 'sam']
+Correct Answer: anarchia
+Correct? True
+Score: 15/39 - 0.38461538461538464
+--------------------------------------------------
+Riddle: nagłe i gwałtowne zjawisko atmosferyczne, charakteryzujące się silnymi wiatrami, opadami deszczu, gradem, a czasem także błyskawicami i grzmotami.
+Answer: ['burza', 'tornado', 'tornado', 'burza', 'burza']
+Correct Answer: burza
+Correct? True
+Score: 16/40 - 0.4
+--------------------------------------------------
+Riddle: nauka zajmująca się określaniem położenia i kształtu powierzchni ziemi oraz opracowywaniem map i planów geodezyjnych.
+Answer: ['geodezja', 'geodezja', 'geodezja', 'geodezja', 'geodezja']
+Correct Answer: geodezja
+Correct? True
+Score: 17/41 - 0.4146341463414634
+--------------------------------------------------
+Riddle: zapisana forma językowa składająca się z liter, cyfr lub innych znaków, służąca do przekazywania informacji lub treści.
+Answer: ['kody', 'pisownia', 'alfabet', 'zapis', 'list']
+Correct Answer: napis
+Correct? False
+Score: 17/42 - 0.40476190476190477
+--------------------------------------------------
+Riddle: obszar miejski położony na obrzeżach miasta, charakteryzujący się mieszkalną zabudową oraz dostępnością usług i infrastruktury miejskiej.
+Answer: ['dzielnica', 'dzielnica', 'dzielnica', 'dzielnica', 'miasto']
+Correct Answer: przedmieście
+Correct? False
+Score: 17/43 - 0.3953488372093023
+--------------------------------------------------
+Riddle: przedmiot służący do korygowania wzroku lub ochrony oczu przed szkodliwym promieniowaniem.
+Answer: ['okulary', 'okulary', 'okulary', 'okulary', 'okulary']
+Correct Answer: okulary
+Correct? True
+Score: 18/44 - 0.4090909090909091
+--------------------------------------------------
+Riddle: nazwa wiejskiej posiadłości, gospodarstwa lub zagrody, zazwyczaj zlokalizowanej na obrzeżach lub poza miastem.
+Answer: ['pastwisko', 'faworyta', 'folwark', 'chałupa', 'folwark']
+Correct Answer: ranczo
+Correct? False
+Score: 18/45 - 0.4
+--------------------------------------------------
+Riddle: osoba lub grupa osób wysłana w imieniu innych do reprezentowania ich interesów lub podejmowania decyzji.
+Answer: ['przedstawiciel', 'ambasador', 'ambasada', 'misja', 'dyplom']
+Correct Answer: delegat
+Correct? False
+Score: 18/46 - 0.391304347826087
+--------------------------------------------------
+Riddle: instrument muzyczny z grupy aerofonów, składający się z blaszanej ramki zawierającej stroiki, które generują dźwięk pod wpływem dmuchania przez ustnik.
+Answer: ['trąbka', 'flet', 'dzwon', 'trąbka', 'trąbka']
+Correct Answer: harmonijka
+Correct? False
+Score: 18/47 - 0.3829787234042553
+--------------------------------------------------
+Riddle: element służący do łączenia, mocowania lub podpierania części konstrukcji, zwykle w postaci cylindra lub stożka.
+Answer: ['śruba', 'śruba', 'śruba', 'śruba', 'śruba']
+Correct Answer: kołek
+Correct? False
+Score: 18/48 - 0.375
+--------------------------------------------------
+Riddle: cecha lub stan bycia obowiązkowym, wymaganym lub koniecznym.
+Answer: ['kara', 'nieposłuszeństwo', 'nekropolia', 'obowiązek', 'niewolnictwo']
+Correct Answer: obligatoryjność
+Correct? False
+Score: 18/49 - 0.3673469387755102
+--------------------------------------------------
+Riddle: proces zapewnienia dostępu do krwi poprzez naczynia krwionośne, a także zjawisko obecności krwi w tkankach organizmu.
+Answer: ['krwawienie', 'krwawienie', 'krwawienie', 'trans', 'trans']
+Correct Answer: ukrwienie
+Correct? False
+Score: 18/50 - 0.36
+--------------------------------------------------
+Riddle: przerwanie bądź przekłucie skóry lub tkanki przez użądlenie lub ugryzienie przez ząb lub żądło zwierzęcia lub owada, zazwyczaj powodujące ból, obrzęk i miejscowe podrażnienie.
+Answer: ['ugru', 'ugru', 'amputacja', 'ukąszenie', 'kłusownictwo']
+Correct Answer: ukąszenie
+Correct? True
+Score: 19/51 - 0.37254901960784315
+--------------------------------------------------
+Riddle: nasiona oleiste roślin, takie jak len, konopie czy rzepak, które są wykorzystywane w kuchni i przemyśle.
+Answer: ['ziarno', 'olej', 'sezam', 'słonecznik', 'sezam']
+Correct Answer: siemię
+Correct? False
+Score: 19/52 - 0.36538461538461536
+--------------------------------------------------
+Riddle: mała objętość gazów lub cieczy otoczona cienką warstwą plastikową lub mydlaną.
+Answer: ['gaz', 'but', 'bąk', 'pianka', 'płyn']
+Correct Answer: bańka
+Correct? False
+Score: 19/53 - 0.3584905660377358
+--------------------------------------------------
+Riddle: suma środków pieniężnych i dóbr ruchomych przekazywanych danej osobie w związku z jej zatrudnieniem lub zawarciem umowy o pracę.
+Answer: ['przechowalnia', 'wynagrodzenie', 'emeryt', 'rentowność', 'emeryt']
+Correct Answer: uposażenie
+Correct? False
+Score: 19/54 - 0.35185185185185186
+--------------------------------------------------
+Riddle: forma aktywności fizycznej polegająca na bieganiu wolnym tempem.
+Answer: ['bieg', 'bieg', 'bieg', 'jaz', 'jaz']
+Correct Answer: jogging
+Correct? False
+Score: 19/55 - 0.34545454545454546
+--------------------------------------------------
+Riddle: efektywne zarządzanie zasobami, mające na celu optymalne wykorzystanie dostępnych środków, czasu i przestrzeni w celu osiągnięcia określonych celów.
+Answer: ['zarządzanie', 'zarządzanie', 'zarządzanie', 'zarządzanie', 'zarządzanie']
+Correct Answer: gospodarowanie
+Correct? False
+Score: 19/56 - 0.3392857142857143
+--------------------------------------------------
+Riddle: roślina z rodziny wiechlinowatych, uprawiana głównie jako roślina pastewna oraz jako roślina zbożowa.
+Answer: ['żyto', 'jęczmień', 'rzepa', 'pszenica', 'koniczyna']
+Correct Answer: owies
+Correct? False
+Score: 19/57 - 0.3333333333333333
+--------------------------------------------------
+Riddle: means allowing light to pass through so that objects behind can be distinctly seen. it can also refer to something that is easily understood or perceived.
+Answer: ['optyka', 'scena', 'wyraz', 'podgląd', 'okno']
+Correct Answer: transparent
+Correct? False
+Score: 19/58 - 0.3275862068965517
+--------------------------------------------------
+Riddle: osoba zajmująca się pisaniem felietonów, czyli krótkich tekstów publicystycznych, w których wyraża swoje opinie, komentarze lub refleksje na różnorodne tematy.
+Answer: ['felieton', 'felieton', 'felieton', 'felieton', 'felieton']
+Correct Answer: felietonista
+Correct? False
+Score: 19/59 - 0.3220338983050847
+--------------------------------------------------
+Riddle: stan emocjonalny charakteryzujący się poczuciem niepewności, obawy lub niepokoju. może być związany z różnymi sytuacjami życiowymi, które wywołują stres lub niepewność.
+Answer: ['strach', 'stres', 'strach', 'stres', 'stres']
+Correct Answer: niepokój
+Correct? False
+Score: 19/60 - 0.31666666666666665
+--------------------------------------------------
+Riddle: mały, okrągły znak interpunkcyjny oznaczający koniec zdania.
+Answer: ['przecinek', 'kropka', 'cisz', 'spacer', 'zaprzeczenie']
+Correct Answer: kropka
+Correct? True
+Score: 20/61 - 0.32786885245901637
+--------------------------------------------------
+Riddle: rodzaj winogron pochodzący z rodziny vitis vinifera, uprawiany w celu produkcji wysokiej jakości wina czerwonego.
+Answer: ['mer', 'gra', 'grono', 'gra', 'gron']
+Correct Answer: cabernet
+Correct? False
+Score: 20/62 - 0.3225806451612903
+--------------------------------------------------
+Riddle: tytuł używany przez arabskich władców lub lokalnych gubernatorów.
+Answer: ['królewic', 'szach', 'szach', 'szach', 'kalif']
+Correct Answer: emir
+Correct? False
+Score: 20/63 - 0.31746031746031744
+--------------------------------------------------
+Riddle: rodzaj odzieży, którym określa się wszelkie rodzaje obuwia, czyli przedmioty noszone na stopie w celu ochrony i wygody.
+Answer: ['adidas', 'but', 'sandacz', 'sandacz', 'but']
+Correct Answer: obuwie
+Correct? False
+Score: 20/64 - 0.3125
+--------------------------------------------------
+Riddle: działanie polegające na intensywnym i systematycznym ostrzeliwaniu danego obszaru lub celu za pomocą broni artyleryjskiej, lotniczej lub rakietowej.
+Answer: ['artyleria', 'bombardowanie', 'artyleria', 'ostrzał', 'atak']
+Correct Answer: bombardowanie
+Correct? True
+Score: 21/65 - 0.3230769230769231
+--------------------------------------------------
+Riddle: niewielka konstrukcja przeznaczona do prezentacji i sprzedaży produktów lub usług na targach, festiwalach, czy jarmarkach.
+Answer: ['bilet', 'targ', 'strefa', 'wystawienie', 'targ']
+Correct Answer: stoisko
+Correct? False
+Score: 21/66 - 0.3181818181818182
+--------------------------------------------------
+Riddle: uczynkiem nazywamy dobrowolne zachowanie, akcję lub decyzję podejmowaną przez osobę, mającą wpływ na innych lub przynoszącą skutki, pozytywne lub negatywne.
+Answer: ['gest', 'gest', 'ustęp', 'moralność', 'akt']
+Correct Answer: uczynek
+Correct? False
+Score: 21/67 - 0.31343283582089554
+--------------------------------------------------
+Riddle: wysokim siedziskiem, zazwyczaj ozdobnym, na którym zasiada władca lub monarcha.
+Answer: ['fotel', 'posag', 'fotel', 'fot', 'krzesło']
+Correct Answer: tron
+Correct? False
+Score: 21/68 - 0.3088235294117647
+--------------------------------------------------
+Riddle: obiekt, miejsce lub zdarzenie, które przyciąga uwagę, cieszy oko lub dostarcza rozrywki.
+Answer: ['prasa', 'perfumy', 'stan', 'kino', 'plaża']
+Correct Answer: atrakcja
+Correct? False
+Score: 21/69 - 0.30434782608695654
+--------------------------------------------------
+Riddle: maszyna rolnicza przeznaczona do zbioru zbóż i innych upraw rolnych.
+Answer: ['łopatka', 'kombajn', 'kombajn', 'kombajn', 'kombajn']
+Correct Answer: kombajn
+Correct? True
+Score: 22/70 - 0.3142857142857143
+--------------------------------------------------
+Riddle: kobieta, która odziedziczyła majątek, tytuł lub inne prawa po zmarłym krewnym.
+Answer: ['dziedziczka', 'dziedziczka', 'spadkobierczyni', 'spadkobierczyni', 'dziedziczka']
+Correct Answer: dziedziczka
+Correct? True
+Score: 23/71 - 0.323943661971831
+--------------------------------------------------
+Riddle: sytuacja, w której osoba, przedsiębiorstwo lub instytucja posiada długi, czyli zobowiązania finansowe, które muszą zostać spłacone w określonym czasie.
+Answer: ['nierówność', 'dług', 'bank', 'dług', 'syndrom']
+Correct Answer: zadłużenie
+Correct? False
+Score: 23/72 - 0.3194444444444444
+--------------------------------------------------
+Riddle: wielkość fizyczna określająca ilość energii przepływającej przez daną powierzchnię lub przekrój w danym czasie, wyrażana w amperach.
+Answer: ['metr', 'metr', 'konduktor', 'określenie', 'metr']
+Correct Answer: natężenie
+Correct? False
+Score: 23/73 - 0.3150684931506849
+--------------------------------------------------
+Riddle: silne odczucie niechęci, wstrętu lub odrazy.
+Answer: ['nienawiść', 'fobia', 'uczucie', 'uraz', 'agresja']
+Correct Answer: obrzydzenie
+Correct? False
+Score: 23/74 - 0.3108108108108108
+--------------------------------------------------
+Riddle: fizyczną formą pieniądza w postaci banknotów i monet, stanowiąca natychmiastowy i bezgotówkowy środek płatniczy.
+Answer: ['bank', 'bank', 'mon', 'bank', 'pieniądz']
+Correct Answer: gotówka
+Correct? False
+Score: 23/75 - 0.30666666666666664
+--------------------------------------------------
+Riddle: osoba posiadająca odpowiednie kwalifikacje i umiejętności, która przekazuje wiedzę i umiejętności innym, zazwyczaj w ramach kursu, szkolenia lub lekcji.
+Answer: ['kurs', 'szkoleniowiec', 'nauczyciel', 'szkolenie', 'nauczyciel']
+Correct Answer: instruktor
+Correct? False
+Score: 23/76 - 0.3026315789473684
+--------------------------------------------------
+Riddle: formalna wola dwóch lub więcej stron, które zobowiązują się do określonych czynności lub świadczeń.
+Answer: ['pismo', 'test', 'decyzja', 'test', 'por']
+Correct Answer: umowa
+Correct? False
+Score: 23/77 - 0.2987012987012987
+--------------------------------------------------
+Riddle: naturalna ludzka cecha polegająca na chęci zgłębiania nowych informacji, odkrywania oraz poszukiwania wiedzy.
+Answer: ['skłonność', 'akademik', 'ciekawość', 'innowacyjność', 'naukowiec']
+Correct Answer: ciekawość
+Correct? True
+Score: 24/78 - 0.3076923076923077
+--------------------------------------------------
+Riddle: oficjalne potwierdzenie, zwykle w formie dokumentu, które świadczy o spełnieniu określonych norm, wymagań lub standardów przez produkt lub usługę.
+Answer: ['dyplom', 'certyfikat', 'certyfikat', 'certyfikat', 'certyfikat']
+Correct Answer: atest
+Correct? False
+Score: 24/79 - 0.3037974683544304
+--------------------------------------------------
+Riddle: stan lub sytuacja, w której brakuje określonego przedmiotu, celu lub obiektu. może być także interpretowana jako brak istotnych treści albo zawartości.
+Answer: ['nuda', 'pustka', 'anarchia', 'stagnacja', 'nuda']
+Correct Answer: bezprzedmiotowość
+Correct? False
+Score: 24/80 - 0.3
+--------------------------------------------------
+Riddle: regionalne, potoczne określenie na osobę, która nie pracuje zawodowo, żyjąc z niewielkich zarobków lub z zasiłków.
+Answer: ['bez', 'biedak', 'bez', 'złodziej', 'agencja']
+Correct Answer: znajda
+Correct? False
+Score: 24/81 - 0.2962962962962963
+--------------------------------------------------
+Riddle: zapis informacji lub danych dotyczących zdarzeń, transakcji lub działań, zwykle w formie uporządkowanej chronologicznie. ."
+Answer: ['raport', 'korespondencja', 'rachunek', 'rej', 'bilet']
+Correct Answer: log
+Correct? False
+Score: 24/82 - 0.2926829268292683
+--------------------------------------------------
+Riddle: umiejętność odpowiedniego postępowania w sytuacjach społecznych oraz zdolność okazywania wrażliwości na potrzeby i uczucia innych ludzi.
+Answer: ['empatia', 'empatia', 'empatia', 'empatia', 'empatia']
+Correct Answer: takt
+Correct? False
+Score: 24/83 - 0.2891566265060241
+--------------------------------------------------
+Riddle: lekki materiał wykonany z cienkiego płótna lub jedwabiu, służący do okrywania ciała lub rzeczy, często używany w celach dekoracyjnych lub religijnych.
+Answer: ['szal', 'koronka', 'szal', 'chusta', 'haft']
+Correct Answer: całun
+Correct? False
+Score: 24/84 - 0.2857142857142857
+--------------------------------------------------
+Riddle: umiejętność lub talent do wykonywania określonych zadań lub czynności.
+Answer: ['muzyka', 'geniusz', 'opieka', 'docent', 'sport']
+Correct Answer: zdolność
+Correct? False
+Score: 24/85 - 0.2823529411764706
+--------------------------------------------------
+Riddle: proces wybierania, segregowania lub odsiewania danych, informacji lub elementów z większego zbioru zgodnie z określonym kryterium lub regułami.
+Answer: ['analiza', 'kryterium', 'katalog', 'analiza', 'agregat']
+Correct Answer: filtrowanie
+Correct? False
+Score: 24/86 - 0.27906976744186046
+--------------------------------------------------
+Riddle: popularna, średniej wielkości ptak z rodziny gołębiowatych, charakteryzująca się krępym ciałem, krótkimi nogami i długimi skrzydłami.
+Answer: ['gołąb', 'gołąb', 'gołąb', 'gołąb', 'gołąb']
+Correct Answer: gołąb
+Correct? True
+Score: 25/87 - 0.28735632183908044
+--------------------------------------------------
+Riddle: sytuacja, w której koszty przewyższają potencjalne zyski, co sprawia, że dana czynność, inwestycja lub decyzja nie jest opłacalna lub nieopłacalna.
+Answer: ['kok', 'nieopłacalność', 'finansista', 'biznes', 'kredyt']
+Correct Answer: nieopłacalność
+Correct? True
+Score: 26/88 - 0.29545454545454547
+--------------------------------------------------
+Riddle: okres przerwy od wykonywania jakiejś czynności, zwykle służący do odpoczynku, relaksu lub regeneracji sił.
+Answer: ['przerwa', 'pauza', 'odpoczynek', 'przerwa', 'przerwa']
+Correct Answer: pauza
+Correct? True
+Score: 27/89 - 0.30337078651685395
+--------------------------------------------------
+Riddle: możliwość zajścia lub wystąpienia danej sytuacji, zdarzenia lub okoliczności.
+Answer: ['przypadek', 'kat', 'impuls', 'niebezpieczeństwo', 'trud']
+Correct Answer: ewentualność
+Correct? False
+Score: 27/90 - 0.3
+--------------------------------------------------
+Riddle: zjawisko atmosferyczne składające się z widocznej mgiełki lub skupiska kropel wody lub kryształków lodu unoszących się w powietrzu.
+Answer: ['chmura', 'mgła', 'huragan', 'chmura', 'mgła']
+Correct Answer: obłok
+Correct? False
+Score: 27/91 - 0.2967032967032967
+--------------------------------------------------
+Riddle: uroczysta pieśń religijna lub patriotyczna, mająca na celu wyrażenie czci, uwielbienia lub podziękowania.
+Answer: ['hymn', 'hymn', 'hymn', 'hymn', 'hymn']
+Correct Answer: hymn
+Correct? True
+Score: 28/92 - 0.30434782608695654
+--------------------------------------------------
+Riddle: cienki i zazwyczaj prosty kawałek drewna lub gałązka, wykorzystywany na przykład do rozwieszania prania, podpierania roślin czy znakowania ścieżek.
+Answer: ['tablica', 'sznurek', 'kij', 'kłusownictwo', 'kłusownic']
+Correct Answer: patyk
+Correct? False
+Score: 28/93 - 0.3010752688172043
+--------------------------------------------------
+Riddle: tytuł lub forma grzecznościowa używana wobec kobiety, zwykle starszej lub poważanej.
+Answer: ['panie', 'młodość', 'kochanie', 'królowa', 'pani']
+Correct Answer: pani
+Correct? True
+Score: 29/94 - 0.30851063829787234
+--------------------------------------------------
+Riddle: sytuacja, w której celny strzał, rzut lub uderzenie trafia w zamierzony cel.
+Answer: ['strzała', 'strzała', 'strzała', 'cel', 'strzała']
+Correct Answer: trafienie
+Correct? False
+Score: 29/95 - 0.30526315789473685
+--------------------------------------------------
+Riddle: osoba popierająca zasady demokracji oraz dążąca do równości w społeczeństwie, przestrzegająca praw obywatelskich i wspierająca rządy oparte na woli większości.
+Answer: ['demokrata', 'demokrata', 'demokrata', 'polityk', 'demokrata']
+Correct Answer: demokrata
+Correct? True
+Score: 30/96 - 0.3125
+--------------------------------------------------
+Riddle: urządzenie służące do przerywania obwodu elektrycznego w celu odłączenia go od zasilania.
+Answer: ['transformator', 'grzałka', 'wyłącznik', 'szlifierka', 'transformator']
+Correct Answer: wyłącznik
+Correct? True
+Score: 31/97 - 0.31958762886597936
+--------------------------------------------------
+Riddle: muzyka ludowa pochodząca z hiszpanii, charakteryzująca się szybkimi rytmami i energetycznym tańcem flamenco.
+Answer: ['flora', 'flor', 'flirt', 'flirt', 'flora']
+Correct Answer: jaz
+Correct? False
+Score: 31/98 - 0.3163265306122449
+--------------------------------------------------
+Riddle: stopień wojskowy, pełniący funkcję oficera łącznikowego pomiędzy dowódcą jednostki a żołnierzami, odpowiedzialny m.in. za zachowanie dyscypliny i porządku.
+Answer: ['kapitan', 'stop', 'łącznik', 'oficer', 'generał']
+Correct Answer: chorąży
+Correct? False
+Score: 31/99 - 0.31313131313131315
+--------------------------------------------------
+Riddle: czynność polegająca na zatrzymywaniu pojazdu na określonym obszarze, zazwyczaj przy użyciu specjalnie wyznaczonych miejsc parkingowych.
+Answer: ['parking', 'parking', 'park', 'post', 'parking']
+Correct Answer: parkowanie
+Correct? False
+Score: 31/100 - 0.31
+--------------------------------------------------
