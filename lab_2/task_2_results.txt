@@ -597,4 +597,3 @@ Answer: ['parking', 'parking', 'park', 'post', 'parking']
 Correct Answer: parkowanie
 Correct? False
 Score: 31/100 - 0.31
---------------------------------------------------

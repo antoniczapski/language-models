@@ -74,8 +74,10 @@
           "content": "Task 2",
           "id": 1735400383796,
           "level": "default",
-          "done": false,
-          "start": 1735400383796
+          "done": true,
+          "start": 1735400383796,
+          "focus": false,
+          "end": 1736691070817
         }
       },
       {
@@ -115,8 +117,10 @@
               "content": "Dla zadanego prefiksu dokończyć zdanie - wszystkie pierwsze litery mają być takie same",
               "id": 1735400862461,
               "level": "default",
-              "done": false,
-              "start": 1735400862461
+              "done": true,
+              "start": 1735400862461,
+              "focus": false,
+              "end": 1736688616745
             }
           },
           {
@@ -126,8 +130,10 @@
               "content": "Stosować top-p i top-k",
               "id": 1735400894276,
               "level": "default",
-              "done": false,
-              "start": 1735400894276
+              "done": true,
+              "start": 1735400894276,
+              "focus": false,
+              "end": 1736688616248
             }
           },
           {
@@ -137,8 +143,10 @@
               "content": "Generować kilka wariantów i wybierać z nich najlepszy",
               "id": 1735400917855,
               "level": "default",
-              "done": false,
-              "start": 1735400917855
+              "done": true,
+              "start": 1735400917855,
+              "focus": false,
+              "end": 1736688615708
             }
           },
           {
@@ -148,8 +156,10 @@
               "content": "Unikać powtórzeń",
               "id": 1735400938225,
               "level": "default",
-              "done": false,
-              "start": 1735400938225
+              "done": true,
+              "start": 1735400938225,
+              "focus": false,
+              "end": 1736688615085
             }
           }
         ],
@@ -157,8 +167,10 @@
           "content": "Task 4",
           "id": 1735400857999,
           "level": "default",
-          "done": false,
-          "start": 1735400857999
+          "done": true,
+          "start": 1735400857999,
+          "focus": false,
+          "end": 1736688617778
         }
       }
     ],
@@ -178,6 +190,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1735511991946"
+    "version": "1736691070890"
   }
 }
