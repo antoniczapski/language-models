@@ -11,8 +11,10 @@
               "content": "Stwórz embedding słowa z embeddingu tokenów",
               "id": 1735401861449,
               "level": "default",
-              "done": false,
-              "start": 1735401861449
+              "done": true,
+              "start": 1735401861449,
+              "focus": false,
+              "end": 1736699724653
             }
           },
           {
@@ -22,8 +24,10 @@
               "content": "Wykorzystaj contextual embeddings z BERTa",
               "id": 1735401899198,
               "level": "default",
-              "done": false,
-              "start": 1735401899198
+              "done": true,
+              "start": 1735401899198,
+              "focus": false,
+              "end": 1736699724038
             }
           },
           {
@@ -33,8 +37,10 @@
               "content": "Przetestuj rozwiązanie przy pomocy word_emb_evaluation.py",
               "id": 1735401913903,
               "level": "default",
-              "done": false,
-              "start": 1735401913903
+              "done": true,
+              "start": 1735401913903,
+              "focus": false,
+              "end": 1736699723386
             }
           }
         ],
@@ -42,8 +48,10 @@
           "content": "Task 1",
           "id": 1735401748993,
           "level": "default",
-          "done": false,
-          "start": 1735401748994
+          "done": true,
+          "start": 1735401748994,
+          "focus": false,
+          "end": 1736699725209
         }
       },
       {
@@ -200,6 +208,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1735403083379"
+    "version": "1736699725296"
   }
 }

@@ -7,7 +7,7 @@ from tqdm import tqdm
 import torch.nn.functional as F
 
 class LanguageModel:
-    def __init__(self, model_name: str = "eryk-mazus/polka-1.1b", device: str = 'cuda:0'):
+    def __init__(self, model_name: str = "eryk-mazus/polka-1.1b", device: str = 'cuda'):
         """
         Initializes the tokenizer and the model for papuGaPT2.
         Adds a sliding-window conversation approach.
@@ -244,7 +244,7 @@ def evaluate_model(qa_pairs: List[Tuple[str, List[str]]], generate_answer_func) 
     correct = 0
     total = len(qa_pairs)
 
-    for idx, (question, correct_answers) in tqdm(enumerate(qa_pairs, 1)):
+    for idx, (question, correct_answers) in enumerate(tqdm(qa_pairs)):
         # Generate answer using the provided function
         generated_answer = generate_answer_func(question)
         

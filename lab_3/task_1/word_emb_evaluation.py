@@ -59,9 +59,18 @@ def best(w, K):
     return L[:K]
 
 
-name = 'word_embedings_file.txt'
+# name = 'word_embedings_file_papuga_original.txt' # avg: 0.745648, max: 0.665764
+name = 'word_embedings_file_BERT_original.txt' # avg: 0.65476, max: 0.64039, first: 0.648844
+# name = 'word_embedings_file_papuga_deformed.txt' # avg: 0.53862, max: 0.518726
+# name = 'word_embedings_file_BERT_deformed.txt' # new: 0.541068, avg: 0.535188
 
-for x in open(name):
+import os
+
+# The code below reads the word embeddings from the file
+# and stores them in the dictionary named vectors.
+# The key is the word and the value is the vector.
+# The vectors are normalized to have the length equal to 1.
+for x in open(os.path.join('lab_3', 'task_1', name), 'r', encoding='utf-8'):
     L = x.split()
     if len(L) < 2:
         continue
@@ -70,7 +79,6 @@ for x in open(name):
     v = np.array(values)
     length = v.dot(v) ** 0.5
     vectors[w] = v / length
-    
 C = {}
 
 def choose_another(A, a):
@@ -85,7 +93,7 @@ for x in clusters_txt.split('\n'):
     L = x.split()
     if len(L) < 2:
         continue    
-    C[L[0]] = L[1:]
+    C[L[0].rstrip(':')] = L[1:]
     words.update(L[1:])
     
 groups = list(C.keys())
