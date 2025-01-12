@@ -1,4 +1,4 @@
-## **Zadanie 1: Czatbot z Historią i Optymalnym Doborem Odpowiedzi**
+## **Zadanie 1:**
 
 **Cel:** Zbadać bias modeli językowych przy obliczeniach arytmetycznych.
 
@@ -17,7 +17,7 @@ Użyty model `polka-1.1b`. Przeprowadziłem eksperymenty, z kórych wynika że w
 
 [wykres_3]
 
-## **Zadanie 2: Układanie Słów w Najbardziej Naturalny Sposób**
+## **Zadanie 2:**
 
 **Cel:** Odpowiedzieć przy pomocy modelu językowego na zagadki
 
@@ -38,7 +38,7 @@ Correct Answer: problem
 Correct? True
 ```
 
-## **Zadanie 3: Analiza Wydźwięku Opinii (Pozytywny vs Negatywny)**
+## **Zadanie 3:**
 
 **Cel:** Znaleźć najbardziej prawdopodobny wariant zdania.
 
@@ -51,7 +51,7 @@ Input:  wprost|wyprosty|wyprostu|wyprost uwielbiała|wielbił|wielbiła|uwielbi�
 Output: wprost uwielbiała słuchać o wartościach własnych macierzy
 ```
 
-## **Zadanie 4: Odpowiadanie na Pytania Faktyczne**
+## **Zadanie 4:**
 
 **Cel:** Modyfikacja rozkładu prawdopodobieństawa podczas generacji tokenów w taki sposób, aby spełniały zadaną zasadę. Tj. zawsze zaczynać się od tej samej litery.
 
