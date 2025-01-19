@@ -1,4 +1,4 @@
-## **Task 1**
+## Task 1
 > *When creating embeddings for two different languages (e.g., English and Polish), the vectors for “women” and “kobieta” may end up unrelated. Propose a method of computing embeddings such that words that are translations of each other receive similar vectors. You may use corpora in both languages and possibly other data.*
 
 ### 1.1. The Problem: Bilingual (or Multilingual) Word Embeddings
@@ -26,7 +26,7 @@ In short, to get “women” ~ “kobieta,” you must explicitly include either
 
 ---
 
-## **Task 2**
+## Task 2
 > *Propose a method for generating text (generally sequences/matrices of tokens of a fixed size) using a BERT-like model. You can invent a procedure yourself or reference a publication.*
 
 ### 2.1. The Challenge: BERT as a Masked Model
@@ -55,7 +55,7 @@ Hence a straightforward method is:
 
 ---
 
-## **Task 3**
+## Task 3
 > *Assume we have a large n-gram model \(M_{ng}\) on tokens. Propose two scenarios of training a GPT-like model that uses \(M_{ng}\). The model \(M_{ng}\) may also be used later in inference for text generation.*
 
 We have a powerful **n-gram** model pre-trained on a big corpus. We want to integrate it into a GPT-like training scenario.
@@ -79,9 +79,7 @@ We have a powerful **n-gram** model pre-trained on a big corpus. We want to inte
 
 - We can continue to do “ensemble inference” by mixing GPT’s next-token probabilities with the n-gram model’s probabilities. This can reduce GPT hallucination or out-of-distribution tokens that the n-gram model sees as improbable.
 
----
-
-## **Task 4**
+## Task 4
 > *We return to the “careless programmer” scenario. This time, they trained a large BERT model but forgot to include positional embeddings. Could that model still be useful? Is the large vocabulary helpful or harmful?*
 
 ### 4.1. BERT Without Positional Embeddings
@@ -101,9 +99,8 @@ We have a powerful **n-gram** model pre-trained on a big corpus. We want to inte
 
 Thus you could argue the model isn’t entirely useless, but is **severely limited**. The large vocabulary might not really rescue it, though it could be a small silver lining for tasks that are purely bag-of-words style.
 
----
 
-## **Task 5**
+## Task 5
 > *Suppose management is okay with your explanation that “positionless BERT” can do something. Now they want to train another instance for a different language. Standard Masked Language Modeling has a particular property that is especially problematic if we have no positional embeddings. What is that property?*
 
 **Hint**: The Polish text references a rot13 message: “Cbzlśy b yvpmovr gbxraój ZNFX” (unclear if there's a direct decode). The key idea is:
@@ -117,9 +114,7 @@ Hence the property is:
 - **The random masking is predicated on having a sense of which token is missing at which position** so that the model can place the correct word *in that specific context*.
 - Without position embeddings, the model might degrade to a “fill in the missing item from the set.” Possibly it can exploit the “bag-of-words minus one” trick to guess the missing token. This yields weird or limited training signals because the model can’t learn real syntactic or sequential constraints.
 
----
-
-## **Task 6**
+## Task 6
 > *Naive Bayes Classifier (NBC) is often used in text classification. Briefly explain how NBC works, and list at least two reasons why fine-tuning BERT might yield significantly better text-classification performance.*
 
 ### 6.1. How NBC Works (Naive Bayes Classifier)
@@ -142,7 +137,7 @@ Hence BERT typically outperforms naive Bayes by a large margin.
 
 ---
 
-## **Task 7**
+## Task 7
 > *Design an experiment to see if transformers can sort a sequence of natural numbers. What is your intuition about the result?*
 
 ### 7.1. The Experiment
@@ -160,7 +155,7 @@ Hence BERT typically outperforms naive Bayes by a large margin.
 
 ---
 
-## **Task 8**
+## Task 8
 > *Design an experiment to see if transformers can compute the XOR value of a sequence of bits. What is your intuition about the result?*
 
 ### 8.1. The Experiment
@@ -176,9 +171,7 @@ Hence BERT typically outperforms naive Bayes by a large margin.
 - For shorter sequences, it’s easy to learn. For very large sequences, it might be more tricky, but it’s still simpler than sorting. The model might do quite well with enough training, though it’s “unstructured.”  
 - So we expect good performance if the training covers enough sequence lengths. This is easier than sorting, so the intuition is that the model can do it fairly reliably.
 
----
-
-## **Task 9** (2 points)
+## Task 9
 > *We want to model Python code with a GPT-like autoregressive LM. We have some questions:*
 > 1. *Is the standard tokenization optimal, or should we consider modifications?*  
 > 2. *How to handle code indentation?*  
@@ -217,9 +210,8 @@ Hence BERT typically outperforms naive Bayes by a large margin.
 - **Static analysis** can identify variable scopes, references, or unused variables. This helps us rename variables systematically across an entire code block, avoiding collisions or partial renames that break code.  
 - Also can parse abstract syntax trees (AST). The AST approach clarifies code structure, letting us do a more robust tokenization and transformation.
 
----
 
-## **Task 10** (⋆)
+## Task 10
 > *Which of the previous tasks could be turned into a project/thesis if expanded? What modifications would be needed?*
 
 ### 10.1. Potential Candidates
@@ -236,9 +228,7 @@ Hence BERT typically outperforms naive Bayes by a large margin.
 
 For example, if we pick **Task 9** for a thesis: we’d likely define a big dataset of Python code, systematically test different tokenization strategies, incorporate PEP-8 normalization, measure code perplexity, and test code generation or code completion performance. Possibly integrate static analysis to do safe variable renaming as data augmentation.
 
----
-
-## **Task 11** (2 points, ⋆)
+## Task 11
 > *Propose a new task (not on this list) that could be suitable for a project. Summarize it clearly so that it’s well-defined. You’d post it on the SKOS forum, etc.*
 
 Because this instruction says “propose a task and post it,” we can give **an example** below:

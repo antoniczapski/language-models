@@ -1,4 +1,4 @@
-## **Task 1**  
+## Task 1  
 > *Słowo „tonie” has four different meanings and four lemmas. List them all, then write a short text (preferably one sentence) in which this word appears in all four meanings. Finally, check if ChatGPT can correctly interpret that sentence.*
 
 ### 1.1. Identifying the Four Meanings (and Lemmas) of “tonie”
@@ -29,11 +29,7 @@ Hence we have at least these four senses or lemmas that produce a surface form s
 
 Let’s craft a (slightly playful) sentence in Polish that forces these interpretations:
 
-> „Kiedy statek tonie, w tonie radosnym wykrzykuję, że mam już **tonie** ładunku, choć tak naprawdę zmieniam tonie rozmowy.”
-
-Admittedly, this is a bit contrived. We might refine it:
-
-> „Statek **tonie** w ciszy, a ja wciąż mówię w wesołym **tonie**, chociaż odkryłem, że przewożę aż dwie **tonie** towaru i tym samym zmieniam **tonie** całej dyskusji.”
+> „Statek **tonie** (tonie) w ciszy, a ja wciąż mówię w wesołym **tonie** (tonie), chociaż odkryłem, że przewożę aż dwie **tonie** (tony) towaru i tym samym zmieniam **tonie** (ton) całej dyskusji.”
 
 Breaking it down:
 
@@ -51,9 +47,7 @@ The second part of the task is to see if ChatGPT can identify all four meanings 
 3. “tonie” = inflected form for “tona” (mass unit).
 4. Another “tonie” = an alternate usage referencing style or manner of expression.
 
----
-
-## **Task 2**  
+## Task 2
 > *What are “sparse vector representations” of words (using TF-IDF and contexts)? Why aren’t they perfect? Propose a procedure that includes clustering, potentially giving better results (and fewer dimensions).*
 
 ### 2.1. Sparse Word Vectors (TF-IDF + Context)
@@ -78,9 +72,7 @@ A potential improvement:
 
 This yields **fewer dimensions** (the cluster count or an SVD-truncated rank) and can group near-synonymous contexts together, hopefully improving the representation over raw, extremely sparse TF-IDF.
 
----
-
-## **Task 3**  
+## Task 3  
 > *Next Sentence Prediction (NSP) with two variants of negative examples: (a) negatives randomly sampled from the corpus, (b) negatives formed by swapping the order of consecutive sentences. Propose solutions with a model like Papuga and (optionally) a simpler non-neural method.*
 
 ### 3.1. Using Papuga (or GPT-like) for NSP
@@ -101,9 +93,7 @@ We gather **positive** examples \((s_1, s_2)\) = real consecutive sentences, and
 - We could use **bag-of-words or word2vec** embeddings for each sentence. Then produce a feature vector like `[similarity(s1, s2), length(s1), length(s2), overlap_of_words,…]` and train a logistic regression or SVM to classify if \(s_2\) follows \(s_1\).
 - Alternatively, use word2vec to build averaged embeddings for each sentence, then measure the cosine similarity. In the random negative scenario, consecutive sentences might be more topically similar than random pairs.
 
----
-
-## **Task 4**  
+## Task 4
 > *Propose a method for (context-free) node embeddings in a graph (e.g., social networks, Netflix users & movies). The method should use the original Word2Vec.*
 
 A well-known approach is **DeepWalk** or **node2vec**:
@@ -115,9 +105,7 @@ A well-known approach is **DeepWalk** or **node2vec**:
 
 Hence we get a **word embedding** approach applied to nodes in a graph.
 
----
-
-## **Task 5**  
+## Task 5
 > *We have questions about Polish proverbs, like “Z czym według przysłowia porywamy się na słońce?” or “Co według przysłowia kołem się toczy?” We want an approach using information retrieval.*
 
 A feasible solution:
@@ -131,27 +119,12 @@ A feasible solution:
 For example, if the question is “Z czym według przysłowia porywamy się na słońce?”, we might search for the key phrase “porywać się na słońce,” see the proverb “Z motyką porywać się na słońce” → answer: “motyką.”  
 Similar logic for “Co według przysłowia kołem się toczy?” → “Fortuna kołem się toczy” → answer: “fortuna.”
 
----
-
-## **Task 6**  
+## Task 6
 > *Read the baseline solution for PolEval 2021 Task 4 (question answering). Why might it work, and propose a sensible correction.*
 
-**Why might the baseline approach work?**
+[[TODO]]
 
-- The baseline might do something simple like: “Take the question, do a text search in the source passages, pick the snippet with the highest keyword overlap (or tf-idf match), and then output the substring around that snippet.”
-- This can work decently because many QA tasks have strong lexical cues. If your question has certain keywords, the answer often appears near them in the text.
-
-**Proposed Correction or Improvement**:
-
-- Use a more refined **similarity** measure (like **BM25** or a **transformer-based** re-ranker) to find the most relevant passage.  
-- Then use a small **neural QA** model or rule-based approach to extract the exact answer.  
-- For example, once you have the best passage, you can do a “span extraction” approach or use a local context to guess the correct substring.
-
-This significantly boosts accuracy over a naive “take first matched substring” approach.
-
----
-
-## **Task 7**  
+## Task 7
 > *We know BPE (Byte-Pair Encoding) normally increases the number of tokens to a desired threshold. Propose an algorithm that does the reverse: start with a very large number of tokens and reduce it until we reach the required size, while maximizing the unigram probability of the corpus.*  
 > *Constraints:  
 >  1) Language-independent (no pre-search for words)  
@@ -162,7 +135,7 @@ This significantly boosts accuracy over a naive “take first matched substring�
 
 ### High-Level Idea (Reverse BPE)
 
-1. **Initial State**: We have a huge set of tokens (could be every single possible substring or starting from a more granular “character” model, ironically “too many tokens”).  
+1. **Initial State**: We have a huge set of tokens (could be every single possible substring or starting from a more granular “character” model).  
 2. **Compute Frequencies**: For each token in the current vocabulary, count how often it appears in the corpus (tokenized by the current set).  
 3. **Score** or approximate the “utility” of each token (for instance, how much it contributes to reducing the overall negative log-likelihood of the corpus).  
 4. **Merge or “Split Out”**:
@@ -171,22 +144,18 @@ This significantly boosts accuracy over a naive “take first matched substring�
    - Recompute or update frequencies.  
 5. **Iterate** until the vocabulary is down to the target size.
 
-**Why does maximizing \(\prod p(w_i)\) make sense?** Because we want a tokenization that best “fits” the corpus distribution under a simple unigram assumption. Minimizing the surprise of each token overall is akin to “best compression” in a naive unigram sense.
+**Why does maximizing \(\prod p(w_i)\) make sense?** Because we want a tokenization that best “fits” the corpus distribution under a simple unigram assumption. Minimizing the surprise of each token overall is similar to “best compression” in a naive unigram sense.
 
----
-
-## **Task 8**  
+## Task 8  
 > *Propose **three different scenarios** of data augmentation for **reviews** (e.g., product or movie reviews) using Papuga (GPT-like model).*
 
 Let’s imagine we have a corpus of text reviews in Polish. We want to enlarge or diversify it using the Papuga model:
 
-1. **Style Transfer**: For each existing review, prompt Papuga with “Rewrite this review in a slightly more enthusiastic style.” This yields new text but keeps the same sentiment.  
+1. **Style Transfer**: For each existing review, prompt Papuga with “Rewrite this review in a slightly more informative style.” This yields new text but keeps the same sentiment.  
 2. **Aspect Expansion**: If the original review is short, we can prompt Papuga: “Expand on the details of the product’s design in this review.” The model inserts more details about design. This might capture more nuanced sentences about the product’s features.  
 3. **Sentiment Flip**: For data balancing, we can prompt Papuga: “Rewrite this review with the opposite sentiment while keeping the same product aspects.” This is more advanced but helps create negative-sentiment data from positive-sentiment reviews or vice versa.
 
----
-
-## **Task 9**  
+## Task 9
 > *Propose three scenarios for using word2vec in the “Riddles” tasks from previous lists. Assume we have access to reference definitions of words and some examples of riddles.*
 
 Possible usage:
@@ -195,9 +164,7 @@ Possible usage:
 2. **Synonym/Analogy Finder**: Some riddles rely on analogies. Word2vec can do vector arithmetic: “king - man + woman = queen.” We might adapt this for riddle-like transformations, e.g., “milk - cow + goat = ?” to guess “goatmilk.”  
 3. **Contextual Scoring**: If each riddle provides a partial definition of a word, we can average the word2vec vectors of those clue words, then look up which candidate solution has the smallest distance. This is a simpler bag-of-words synergy approach.
 
----
-
-## **Task 10**  
+## Task 10 
 > *We want to evaluate the likelihood of a generated text in a scenario with strong constraints (like every word must start with “p”). Using the model’s probability to judge “plausibility” has a flaw. Hint: consider the word ‘przede.’ How to fix that flaw easily?*
 
 ### 10.1. The Problem
@@ -220,9 +187,7 @@ Alternatively, we could:
 
 Hence we avoid illusions in the probability from subword merges that start with ‘p’ but are actually partial fragments.
 
----
-
-## **Task 11**  
+## Task 11
 > *We return to word embeddings tested with ABX using a BERT-like model. Suppose the embedding is the entire utterance’s [CLS] vector in HerBERT, not just a single word. Propose a method to construct such an utterance using a text corpus (or a lemma file).*
 
 ### 11.1. The Goal
