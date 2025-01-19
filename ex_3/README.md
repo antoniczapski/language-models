@@ -131,7 +131,7 @@ Similar logic for “Co według przysłowia kołem się toczy?” → “Fortuna
 >  2) Works on a large corpus, always retokenizing based on the current set of tokens.  
 >  3) Does many steps, gradually approaching the target vocabulary size.  
 >  4) Removes “less useful” tokens.  
->  5) Maximizes \(\prod p(w_i)\) or equivalently the sum of \(\log p(w_i)\) under the chosen tokenization.*
+>  5) Maximizes $\prod p(w_i)$ or equivalently the sum of $\log p(w_i)$ under the chosen tokenization.*
 
 ### High-Level Idea (Reverse BPE)
 

@@ -8,9 +8,9 @@
 ### 1.2. Proposed Solutions
 
 1. **Supervised “Dictionary-based” Alignment (Mikolov et al.)**  
-   - Train monolingual embeddings separately: \(\mathbf{X}\) for English, \(\mathbf{Y}\) for Polish.  
-   - Collect a small bilingual dictionary or a set of known word pairs \((w_i^{\text{en}}, w_i^{\text{pl}})\).  
-   - Solve for a linear transformation \(W\) that minimizes \(\sum_i \|W \mathbf{x}_i - \mathbf{y}_i\|^2\), mapping English embeddings into the Polish space.  
+   - Train monolingual embeddings separately: $\mathbf{X}$ for English, $\mathbf{Y}$ for Polish.  
+   - Collect a small bilingual dictionary or a set of known word pairs $(w_i^{\text{en}}, w_i^{\text{pl}})$.  
+   - Solve for a linear transformation $W$ that minimizes $\sum_i \|W \mathbf{x}_i - \mathbf{y}_i\|^2$, mapping English embeddings into the Polish space.  
    - Then “women” and “kobieta” should align more closely.
 
 2. **Shared Training with Parallel (or Comparable) Corpora**  
@@ -62,11 +62,11 @@ We have a powerful **n-gram** model pre-trained on a big corpus. We want to inte
 
 ### 3.1. Scenario A: “Pre-Conditioning” or “Logits Merging”
 
-- During GPT training, for each next token we combine the GPT’s predicted distribution \(p_{\text{GPT}}(w_t \mid w_{<t})\) with \(p_{ng}(w_t \mid w_{<t})\) from the n-gram model.
+- During GPT training, for each next token we combine the GPT’s predicted distribution $p_{\text{GPT}}(w_t \mid w_{<t})$ with $p_{ng}(w_t \mid w_{<t})$ from the n-gram model.
 - Possibly we do a **log-linear interpolation**:
-  \[
-  p(w_t \mid w_{<t}) \;=\; \alpha \, p_{\text{GPT}}(w_t \mid w_{<t}) \;+\;(1-\alpha) \, p_{ng}(w_t \mid w_{<t}).
-  \]
+
+  $$p(w_t \mid w_{<t}) \;=\; \alpha \, p_{\text{GPT}}(w_t \mid w_{<t}) \;+\;(1-\alpha) \, p_{ng}(w_t \mid w_{<t})$$
+  
 - Then we backprop through GPT’s parameters, using the combined distribution as a teacher or as a guide. This might help GPT learn from n-gram’s strengths in local patterns.
 
 ### 3.2. Scenario B: “Knowledge Distillation” from \(M_{ng}\)
@@ -122,9 +122,9 @@ Hence the property is:
 1. **Assumption**: Features (like the presence of certain words) are conditionally independent given the class label.  
 2. **Training**: We estimate \(P(\text{word}=w \mid \text{class}=c)\) and \(P(\text{class}=c)\) from data.  
 3. **Inference**: For a new document, we compute
-   \[
-   P(\text{class}=c \mid \text{doc}) \propto P(\text{class}=c) \prod_{w \in \text{doc}} P(\text{word}=w \mid c).
-   \]
+
+   $$P(\text{class}=c \mid \text{doc}) \propto P(\text{class}=c) \prod_{w \in \text{doc}} P(\text{word}=w \mid c)$$
+   
 4. That is “naive” because we multiply these conditional probabilities ignoring potential correlations among words.
 
 ### 6.2. Why Fine-Tuning BERT Can Be Much Better
