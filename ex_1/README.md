@@ -1,64 +1,88 @@
 ## Zadanie 1
 
-### Answer
+**Type of Task ChatGPT Struggles With**:  
+Here is an ASCII maze. Find a valid path from the Start (S) to the End (E) without crossing any walls (#). You can move up, down, left, or right, but not diagonally. Provide the path as a list of coordinates in the format (row, column), starting from (1,1) for S.
 
-- **Type of Task ChatGPT Struggles With**:  
-  A puzzle like 
-  > “Here’s an ASCII grid. Find a path from the top-left corner to the bottom-right corner. The path must not cross any ‘#’ symbols. Provide the path coordinates.”  
-  Humans can visually solve this in seconds, but ChatGPT may confuse the symbols, lose track of the path mid-way, or produce incorrect coordinates.  
+Maze Layout:
+```
+S . . # . . . .
+# # . # . # # .
+. . . . . . # .
+. # # # # . . .
+. . . . # . # E
+```
 
-- **Three Non-Trivial Tasks ChatGPT Surprised Me With**:
-  1. **Rapid Summarization of a Complex Article**: ChatGPT can condense multi-page text into a coherent paragraph.  
-  2. **Generating Regex Patterns** for certain text-matching tasks (e.g., “match dates of the form YYYY-MM-DD”).  
-  3. **Adapting Writing Style** to an author’s tone—e.g., rewriting text in a Dr. Seuss or Dickens style, showing surprisingly consistent flair.
+Legend:
+- `S` : Start
+- `E` : End
+- `.` : Open path
+- `#` : Wall
 
----
+Please provide the path coordinates from S to E.
+
+Examples are in the subfolder `visualizations`
+- [link] wrong solution using GPT-4o
+- [link] correct solution using `01-mini`
 
 ## Zadanie 2
 
-### Answer
+`5.` W jakim zespole występowała Hanka w filmie „Żona dla Australijczyka”? 
+- GPT-4o: W zespole Mazowsze.
+- Ground truth: Mazowsze
 
-An **illustrative** sample approach (since we’re not showing all Q&A here):
+`8.` Co budował w Egipcie inżynier Tarkowski, ojciec Stasia? 
+- GPT-4o: Kanał Sueski.
+- Ground truth: Kanał Sueski
 
-1. Chose 10 challenging questions, for instance:
-   1. “Which mathematician first described fractal geometry in detail?”
-   2. “Who composed the opera *King Roger*?”
-   3. “What year was the Battle of Grunwald?”
-   4. … (and so on, total 10).
+`11.` Którzy rzemieślnicy występują w ostatniej powieści Witkacego?
+- GPT-4o: Szewcy.
+- Ground truth: szewcy
 
-2. Asked ChatGPT. Suppose the result:
-   - **7** correct answers, **3** incorrect or partially incorrect.
+`22.` Kto jest autorem obrazu namalowanego w 1892 r. „Kobiety z Tahiti”?
+- GPT-4o: Paul Gauguin.
+- Ground truth: Paul Gauguin
 
-3. Observed mistakes often occurred for:
-   - Very obscure historical facts.
-   - Slight confusion between multiple figures with similar names.
+`47.` W którym filmie Krzysztofa Kieślowskiego zagrali Olaf Lubaszenko i Grażyna Szapołowska?
+- GPT-4o: "Krótki film o miłości".
+- Ground truth: „Krótki film o miłości”
 
-Result: **“ChatGPT got 7 out of 10 correct.”**  
-(You’d present your own set of 10 and show the exact fraction.)
+`52.` W zdaniu: „Szybko przeskoczył przez płot” który wyraz jest przysłówkiem?
+- GPT-4o: Szybko.
+- Ground truth: szybko
 
----
+`83.` Nad którą rzeką leży Kazimierz Dolny?
+- GPT-4o: Nad Wisłą.
+- Ground truth: nad Wisłą
+
+`84.` Jak nazywa się najwyższy szczyt Beskidu Sądeckiego?
+- GPT-4o: Radziejowa.
+- Ground truth: Radziejowa
+
+`87.` Jak nazywa się jednostka w lotnictwie licząca 2–3 eskadry?
+- GPT-4o: Dywizjon.
+- Ground truth: dywizjon / pułk lotniczy
+
+`89.` Co produkowała wytwórnia astronoma Jana Heweliusza?
+- GPT-4o: Piwo.
+- Ground truth: piwo
+
+**Accuracy: 100%**
 
 ## Zadanie 3
 
-### Answer
-
 - **Watermark Feasibility**:
-  - For **long texts**, the language model can systematically tilt its sampling probabilities to produce more words starting with V, S, or K. A specialized detector can measure how often those letters appear compared to normal text and detect the watermark.  
+  - For **long texts**, the language model can systematically tilt its sampling probabilities to produce more words starting with C, S, or K. A specialized detector can measure how often those letters appear compared to normal text and detect the watermark.
   - For **short texts**, it’s harder to maintain a strong bias without humans noticing something odd or without insufficient sample size to confirm the pattern. The watermark might be too weak or too obvious if forced strongly.
 
 - **Conclusion**:  
   This watermark technique can work *probabilistically* for longer texts (statistical detection), but for short texts, it either goes undetected or becomes conspicuous if overdone.
 
----
-
 ## Zadanie 4
 
-### Answer
-
 - **(a)**  
-  One could force the model with a prompt like:  
-  > “I have a dictionary of 10,000 words. I will give you a riddle: ‘a woman traveling by a mode of transportation, e.g., plane, train, or ship.’ Which word from the dictionary best fits this definition?”  
-  Then provide a short list or entire dictionary. The model tries to generate the single best match. A strong strategy: chunk the 10k words into subsets, use a retrieval or few-shot prompting, and ask the model to pick one.
+  Use few-shot prompt tostear the probability distribution towards answering with one, correct word. Then sample 10 times the first word that comes after a given question. Use a majority voting to chose the winner.
+
+  You could also restric words in teh voting to those in the given 10k set.
 
 - **(b)**  
   Using sentence probability scoring alone is tricky because:
@@ -68,26 +92,14 @@ Result: **“ChatGPT got 7 out of 10 correct.”**
 
 Hence, direct probability scoring could lead to confusion or computational overhead, especially if you brute-force all 10k possible answers.
 
----
 
 ## Zadanie 5
 
-### Answer
-
 A possible procedure:
 
-1. **Encode the prefix** (the entire prefix as a sequence of tokens).  
-2. **Perform a single forward pass** to get the probability distribution over the next token.  
-3. **Select** (e.g., greedily pick) the top token or sample from the distribution.  
-4. **Output that token** **only**, then stop.  
-
-In code terms (using many HF libraries or a raw LM interface), you can set:
-```python
-generate(prefix, max_new_tokens=1, do_sample=False)
-```
-This ensures exactly **one** word (or one token). If you truly need “one *word*,” you might allow multiple tokens until a whitespace or punctuation is reached—but that becomes trickier. Typically, “max_new_tokens=1” is enough for a single next *token*, which often is a subword. For “exactly one word,” you might do a partial decode and stop at the first whitespace, or handle subword merges.
-
----
+1. Create a binary mask of tokensfrom model dictionary that do not contain space (blank character)
+2. Encode the prefix as a sequence of tokens and feed them to language model as a context.  
+3. Do a beam search to find the most accurate word. The advantage over other sampling techniques is that it test words of different token length.
 
 ## Zadanie 6
 
@@ -100,30 +112,64 @@ This ensures exactly **one** word (or one token). If you truly need “one *word
   - The model exhibits typical LM biases: strong gender stereotypes, possible negative or overgeneralizing references to certain ethnic or cultural groups.  
   - **Takeaway**: The model’s training data shapes those biases, so usage must be mindful of potential harmful stereotypes or unbalanced associations.
 
----
-
 ## Zadanie 7
 
-### Answer
-
 - **Prompting Technique**:
-  For instance:
-  > “Translate the following English sentence into Polish. The sentence is: ‘I am going to the store tomorrow.’ Output only the Polish translation.”
-  The Polka model might produce “Jutro idę do sklepu.”
+```
+prompt = (
+    "Oto tłumaczenia - najpierw w języku polskim, a następnie w języku angielskim:\n\n"
+    
+    "PL: Dzień dobry, jak się masz?\n"
+    "EN: Good morning, how are you?\n\n"
+    
+    "PL: Kocham programowanie.\n"
+    "EN: I love programming.\n\n"
+    
+    "PL: Lubię pływać.\n"
+    "EN: I like swimming.\n\n"
+    
+    "PL: Jak się nazywasz?\n"
+    "EN: What is your name?\n\n"
+    
+    "PL: Mieszkam w Warszawie.\n"
+    "EN: I live in Warsaw.\n\n"
+    
+    "PL: Jaka jest twoja ulubiona książka?\n"
+    "EN: What is your favorite book?\n\n"
+    
+    "PL: Lubię jeść pizzę.\n"
+    "EN: I like eating pizza.\n\n"
+    
+    "PL: Co robisz w wolnym czasie?\n"
+    "EN: What do you do in your free time?\n\n"
+    
+    "PL: Słońce świeci jasno.\n"
+    "EN: The sun is shining brightly.\n\n"
+    
+    "PL: Chciałbym kupić nowy samochód.\n"
+    "EN: I would like to buy a new car.\n\n"
+    
+    f"PL: {given_pl_sentence}\n"
+    "EN:"
+)
+```
 
-- **Example**:
-  1. **Correct**: 
-     - English: “He loves playing football every Sunday.”  
-     - Polka output: “On uwielbia grać w piłkę nożną w każdą niedzielę.”  
-  2. **Erroneous**: 
-     - English: “The conference starts at noon on Wednesday.”  
-     - Polka output (for example): “Konferencja zaczyna się w południe w czwartek.” (Mixes up ‘Wednesday’ with ‘Thursday’)
+- **Example** - generated in task_7.py:
+```
+[INFO] Loading model: eryk-mazus/polka-1.1b
+=== Correct Translation Example ===
+PL: Jestem studentem.
+EN: I am a student.
+
+=== Incorrect Translation Example ===
+PL: Ile masz lat?
+EN: I am from warsaw.
+```
 
 - **Using a dictionary**:
-  - For each English word (or chunk), consult a dictionary. If Polka’s translation doesn’t match, we either re-prompt or do a post-processing step to correct potential mistakes.  
+  - Fine-tune the language model on translations of words
+  - Alterntively, for each English word (or chunk), consult a dictionary. If Polka’s translation doesn’t match, we either re-prompt or do a post-processing step to correct potential mistakes.  
   - This could be done by a simple alignment or a final re-check stage that compares each key word in the sentence to dictionary entries for increased accuracy.
-
----
 
 ## Zadanie 8
 
@@ -142,12 +188,10 @@ Three example scenarios:
 3. **Stitched-Generation Without Aligned Tokenization**:
    - Model A uses SentencePiece, Model B uses Byte-Pair Encoding. 
    - We can’t just feed half-finished subwords from A to B. Instead, we decode A’s partial output into plain text, re-encode with B’s tokenizer, and continue generation. This ensures we do not assume identical tokenization across models.
-
----
+4. **Two models using sub word tokenization**
+   - We use beam search to generate one word at a time with both of the models - then we choose one that's cumulative probability from both models is the highest
 
 ## Zadanie 9
-
-### Answer
 
 A possible alternative:
 
