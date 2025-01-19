@@ -12,7 +12,7 @@ We want to compute the perplexity (for \(k=10\)) under three models:
 
 - The text is a very long sequence of digits, which can be segmented into blocks of length \(k=10\).  
 - Within each block, all digits are identical.  
-- For each new block, the digit is chosen uniformly from \(\{0,1,\ldots,9\}\).  
+- For each new block, the digit is chosen uniformly from $\{0,1,$ $\ldots$ $,9\}$.  
 
 Hence the sequence of digits has strong internal correlations: within a block of length \(k=10\), the digit never changes; when moving to the next block, the digit may (uniformly) become anything.
 
@@ -21,18 +21,15 @@ Hence the sequence of digits has strong internal correlations: within a block of
 A **unigram** model assumes each digit is drawn i.i.d. from some distribution \(p(\text{digit})\). Empirically, across a very large text:
 
 - Each of the 10 digits appears equally often overall (because each chosen digit appears 10 times in its block, and blocks are chosen uniformly among the digits).  
-- So the model estimate is \(p(\text{digit}=d)=1/10\).  
+- So the model estimate is $p(\text{digit}=d)=1/10$.  
 
 The **cross-entropy** of the text under this unigram model is:
-\[
-H_\text{unigram} = -\sum_{d=0}^{9} \bigl(\tfrac{1}{10}\bigr) \log_2\bigl(\tfrac{1}{10}\bigr) \;=\; \log_2(10)\,\approx\,3.3219\,\text{bits}.
-\]
 
-The **perplexity** is \(2^{H_\text{unigram}} = 2^{\log_2(10)}=10.\)
+$$H_\text{unigram} = -\sum_{d=0}^{9} \bigl(\tfrac{1}{10}\bigr) \log_2\bigl(\tfrac{1}{10}\bigr) \;=\; \log_2(10)\,\approx\,3.3219\,\text{bits}.$$
 
-\[
-\boxed{\text{Unigram perplexity} = 10.}
-\]
+The **perplexity** is $2^{H_\text{unigram}} = 2^{\log_2(10)}=10.$
+
+$$\boxed{\text{Unigram perplexity} = 10.}$$
 
 ### 1.3. Bigram Model
 
@@ -42,23 +39,20 @@ A **bigram** model conditions on the *previous* digit. In the true text:
 - With probability \(1/10\), we transition to a new block, where the next digit is uniformly among 10 possible digits.
 
 Hence, given a current digit \(d\),
-\[
-P(\text{next}=d \mid \text{current}=d) \;=\; 0.9 + 0.1 \times 0.1 \;=\; 0.91,
-\]
-\[
-P(\text{next}=e \mid \text{current}=d,\; e\neq d) \;=\; 0.1 \times 0.1 = 0.01.
-\]
+
+$$P(\text{next}=d \mid \text{current}=d) \;=\; 0.9 + 0.1 \times 0.1 \;=\; 0.91,$$
+
+$$P(\text{next}=e \mid \text{current}=d,\; e\neq d) \;=\; 0.1 \times 0.1 = 0.01.$$
+
 One can show the **cross-entropy** is:
-\[
-H_\text{bigram} 
+
+$$H_\text{bigram} 
 = -\bigl[0.91 \log_2(0.91) + 0.09 \log_2(0.01)\bigr]
-\approx 0.723\,\text{bits}.
-\]
+\approx 0.723\,\text{bits}.$$
+
 Thus the **perplexity** is about \(2^{0.723}\approx 1.64.\)
 
-\[
-\boxed{\text{Bigram perplexity} \approx 1.64.}
-\]
+$$\boxed{\text{Bigram perplexity} \approx 1.64.}$$
 
 ### 1.4. Optimal \(n\)-gram Model
 
@@ -69,20 +63,14 @@ If we allow an **\(n\)-gram** model with \(n\ge k\), the model can “know” ex
 
 In a block of length 10, we have 9 “within-block” transitions (0 bits each) and 1 “end-of-block” transition (\(\log_2(10)\) bits). Overall:
 
-\[
-H_\text{optimal} = 
-\tfrac{1}{10}\,\log_2(10)\,\approx\,0.332\,\text{bits},
-\]
-\[
-\text{Perplexity} \;=\; 2^{\,0.332} \;\approx\; 1.25.
-\]
+$$H_\text{optimal} = 
+\tfrac{1}{10}\,\log_2(10)\,\approx\,0.332\,\text{bits},$$
+
+$$\text{Perplexity} \;=\; 2^{\,0.332} \;\approx\; 1.25.$$
 
 And **\(n=10\)** is sufficient to distinguish “I am at the boundary” from “I am in the middle.”
 
-\[
-\boxed{\text{Optimal perplexity} \approx 1.25 \quad\text{for }n=10.
-}
-\]
+$$\boxed{\text{Optimal perplexity} \approx 1.25 \quad\text{for }n=10}$$
 
 ## Task 2
 
@@ -110,7 +98,7 @@ We’re generating text using **2-grams or 3-grams** (bigrams/trigrams), but we 
 1. **(a)** Generate text of length \(M\) where the word at position \(k\) is predefined.  
 2. **(b)** Generate text of length \(M\) where **even** positions are predefined (we only get to choose the words at odd positions).  
 3. **(c)** Generate a short text with a **specified first** and **last** word.  
-4. **(d)** For \([s_1, s_2, \ldots, s_n]\), generate text of length \(n\) such that the \(i\)-th word ends with the suffix \(s_i\).
+4. **(d)** For $[s_1, s_2, \ldots, s_n]$, generate text of length \(n\) such that the \(i\)-th word ends with the suffix \(s_i\).
 
 ### Why is the natural method not effective?
 
@@ -203,7 +191,7 @@ Hence, yes, you can incorporate Kerckhoffs’s principle by introducing a robust
 A standard approach:
 
 1. **Tokenize** the input text into tokens recognized by GPT-2.  
-2. For each token \(w_t\), use the model to compute \(P(w_t \mid w_1,\dots,w_{t-1})\).  
+2. For each token $w_t$, use the model to compute $P(w_t \mid w_1,\dots,w_{t-1})$.  
 3. Encode each token with an **arithmetic coder** (or another entropy coder) that uses the model’s probability distribution at each step. That is, if the next token is predicted with probability 0.001, you encode it in about \(\log_2(1000)\approx 9.97\) bits. More likely tokens require fewer bits.  
 4. The final compressed output is the concatenation of all these bits.
 
