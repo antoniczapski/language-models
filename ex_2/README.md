@@ -1,4 +1,4 @@
-## **Task 1**
+## Task 1
 
 **Recall what perplexity is.** We have a language of “words” that are sequences of digits, each word consisting of *blocks* of length \(k\). In each block, the digit is repeated \(k\) times (e.g., for \(k=10\), a block might be `9999999999`). Furthermore, any block can be followed by a block of *any digit* (uniformly chosen among 10 digits).
 
@@ -8,7 +8,7 @@ We want to compute the perplexity (for \(k=10\)) under three models:
 2. **Bigram model**  
 3. **Optimal \(n\)-gram model** (and what is \(n\) here?)
 
-### **1.1. Text Distribution**
+### 1.1. Text Distribution
 
 - The text is a very long sequence of digits, which can be segmented into blocks of length \(k=10\).  
 - Within each block, all digits are identical.  
@@ -16,7 +16,7 @@ We want to compute the perplexity (for \(k=10\)) under three models:
 
 Hence the sequence of digits has strong internal correlations: within a block of length \(k=10\), the digit never changes; when moving to the next block, the digit may (uniformly) become anything.
 
-### **1.2. Unigram Model**
+### 1.2. Unigram Model
 
 A **unigram** model assumes each digit is drawn i.i.d. from some distribution \(p(\text{digit})\). Empirically, across a very large text:
 
@@ -34,7 +34,7 @@ The **perplexity** is \(2^{H_\text{unigram}} = 2^{\log_2(10)}=10.\)
 \boxed{\text{Unigram perplexity} = 10.}
 \]
 
-### **1.3. Bigram Model**
+### 1.3. Bigram Model
 
 A **bigram** model conditions on the *previous* digit. In the true text:
 
@@ -60,7 +60,7 @@ Thus the **perplexity** is about \(2^{0.723}\approx 1.64.\)
 \boxed{\text{Bigram perplexity} \approx 1.64.}
 \]
 
-### **1.4. Optimal \(n\)-gram Model**
+### 1.4. Optimal \(n\)-gram Model
 
 If we allow an **\(n\)-gram** model with \(n\ge k\), the model can “know” exactly how many times the current digit has repeated so far. Concretely, with \(k=10\):
 
@@ -84,19 +84,16 @@ And **\(n=10\)** is sufficient to distinguish “I am at the boundary” from �
 }
 \]
 
----
+## Task 2
 
-## **Task 2**
-
-A company proposes using **perplexity** to detect machine-generated text—claiming “generated texts have lower perplexity than natural texts, so if perplexity is below some threshold, it’s likely unnatural.”
+A company proposes using **perplexity** to detect machine-generated text—claiming “generated texts have lower perplexity than natural texts, so if perplexity is above some threshold, it’s likely unnatural.”
 
 1. **Why might it work?**  
-   - Some language models (especially if sampling with low “temperature”) produce **more predictable** text, i.e. certain token sequences are high-probability under a standard language model. This can yield a lower perplexity than more “surprising” human writing.  
-   - In some real data, LLM output can be repetitively fluent and thus not so “diverse.”
+   - Some language models (especially if sampling with high “temperature”) produce **less predictable** text, i.e. certain token sequences are chosen which do not resemble the true model of language. This can yield a higher perplexity than human writing.  
+   - In some real data, LLM output can be repetitively fluent and thus not so “diverse”.
 
 2. **Why is it not ideal?**  
-   - **Countermeasures**: A user can increase randomness (temperature) or use nucleus/top-\(p\) sampling, which can **raise** perplexity. The generated text can end up with perplexity in the “human” range.  
-   - **False positives**: Some human texts (technical or formulaic) can be **low perplexity**.  
+   - **False positives**: Some human texts (technical or formulaic) can have **high perplexity**.  
    - **Dynamic models**: As large language models get more sophisticated, they can approach perplexities close to real data.
 
 3. **How can a user control perplexity?**  
@@ -106,9 +103,7 @@ A company proposes using **perplexity** to detect machine-generated text—claim
 
 Hence, while perplexity-based detection can sometimes flag very “predictable” text, it’s not a robust or foolproof solution.
 
----
-
-## **Task 3**
+## Task 3
 
 We’re generating text using **2-grams or 3-grams** (bigrams/trigrams), but we must satisfy additional constraints. The “natural method” (generate left-to-right, check if the condition is met, and if not, re-generate) is often **inefficient**. We want better algorithms for:
 
@@ -127,11 +122,12 @@ We’re generating text using **2-grams or 3-grams** (bigrams/trigrams), but we 
 
 1. **Dynamic Programming or Backtracking**  
    - For (a), if we must have a certain word \(w_k\) at position \(k\), we can **split** the generation: generate from left to \(k\) (in a way that ends with \(w_k\)) and generate from \(k\) to the end, possibly meeting in the middle.  
-   - We can keep track of possible (bigram/trigram) states and only keep feasible partial paths.
+   - We can keep track of possible (bigram/trigram) states and only keep feasible partial paths during beam-search generation.
 
 2. **Constraint-Satisfying Search**  
    - For (b), if all even positions are fixed, we only fill odd positions. We can do a forward-backward approach or a “lattice” approach for bigrams: each position has a set of possible words (in your case, the even positions have exactly 1 possibility), and you find a path through the lattice that matches transitions.  
    - This significantly reduces random failures vs. naive re-generation.
+   - So once again beam-search.
 
 3. **A* or BFS for Short Text**  
    - For (c), with a specified **first** and **last** word, you can do a BFS or A* search from “start word” to “end word” in a bigram graph (where edges connect words that can follow each other). If the text must have length \(M\), you can track partial paths of length up to \(M\).
@@ -142,9 +138,7 @@ We’re generating text using **2-grams or 3-grams** (bigrams/trigrams), but we 
 
 All these methods **avoid** the repeated “generate–fail–retry” approach by **searching or constraining** the space up front.
 
----
-
-## **Task 4**
+## Task 4
 
 You trained a language model on texts that were all read **backward** by mistake (e.g., `['I',' like',' ice',' creams']` became `['creams',' ice',' like','I']`). Now that you realize the error, you started a correct re-training but need to justify the cost of the **first** (incorrect) training.
 
@@ -165,9 +159,7 @@ You trained a language model on texts that were all read **backward** by mistake
 
 Therefore, while it was an error for your main objective, the cost wasn’t entirely wasted—there’s technical and knowledge-based value you can salvage.
 
----
-
-## **Task 5**
+## Task 5
 
 **Steganography** scenario: You’re in prison, want to send hidden messages with minimal suspicion. You have:
 
@@ -190,9 +182,7 @@ A classic approach is to embed bits in the **choice of tokens** while still prod
 
 **In essence**, you are using the language model’s probability distribution to “hide” your bit decisions among multiple plausible next words. The Warden sees only a normal-looking letter. As long as your hidden selection method is carefully done (so the text remains natural), the presence of a hidden message is very hard to detect.
 
----
-
-## **Task 6**
+## Task 6
 
 Research **Kerckhoffs’s Principle**: “A cryptosystem should be secure even if everything about the system is known except the key.” 
 
@@ -206,9 +196,7 @@ Research **Kerckhoffs’s Principle**: “A cryptosystem should be secure even i
 
 Hence, yes, you can incorporate Kerckhoffs’s principle by introducing a robust key-based scheme that does not fail if the method is revealed.
 
----
-
-## **Task 7**
+## Task 7
 
 **Design a method for compressing Polish texts** using a GPT-like language model installed on every computer. 
 
@@ -229,9 +217,7 @@ Key points for an implementer:
 
 Thus you have a well-defined method to compress Polish text by exploiting the GPT-2 prior.
 
----
-
-## **Task 8**
+## Task 8
 
 In the **Papuga** model (a GPT-like model in Polish), the prefix must **not** end with a space. Observing generations with/without a trailing space yields noticeably different completions.
 
@@ -241,11 +227,9 @@ In the **Papuga** model (a GPT-like model in Polish), the prefix must **not** en
 - If your prefix ends with “\_” (space), the next token distribution differs from the scenario where the prefix ends with a letter (no space in the token stream). The hidden states differ because the model sees a “space token.”  
 - This leads to changed probabilities for the next tokens. For instance, the model might strongly prefer continuing with a “word piece” if the last character wasn’t space, or it might treat it as a brand new “word” if a space is present.
 
-In short, **trailing space** alters how the next token is segmented and thus changes the model’s predicted distribution.
+In short, **trailing space** alters how the next token is segmented and thus changes the model’s predicted distribution. It works poorly bedause model wasn't trained on such tokenization.
 
----
-
-## **Task 9**
+## Task 9
 
 We want to generate **rhymed poetry** with a model like GPT-2. For example:
 
@@ -273,9 +257,7 @@ This approach merges **search** with **LM predictions**:
 - The constraint enforces the rhyme at the end.  
 - You can use backtracking or a dynamic approach if you want to guarantee the last word has the correct ending, while maximizing the probability (or sampling) for the rest of the line.
 
----
-
-## **Task 10**
+## Task 10
 
 **Propose a non-linguistic “predict the next token” application** that could be interesting or useful. The task must *not* be purely about natural language.
 

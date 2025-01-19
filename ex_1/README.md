@@ -1,4 +1,4 @@
-## Zadanie 1
+## Task 1
 
 **Type of Task ChatGPT Struggles With**:  
 Here is an ASCII maze. Find a valid path from the Start (S) to the End (E) without crossing any walls (#). You can move up, down, left, or right, but not diagonally. Provide the path as a list of coordinates in the format (row, column), starting from (1,1) for S.
@@ -24,7 +24,7 @@ Examples are in the subfolder `visualizations`
 - [link] wrong solution using GPT-4o
 - [link] correct solution using `01-mini`
 
-## Zadanie 2
+## Task 2
 
 `5.` W jakim zespole występowała Hanka w filmie „Żona dla Australijczyka”? 
 - GPT-4o: W zespole Mazowsze.
@@ -68,7 +68,7 @@ Examples are in the subfolder `visualizations`
 
 **Accuracy: 100%**
 
-## Zadanie 3
+## Task 3
 
 - **Watermark Feasibility**:
   - For **long texts**, the language model can systematically tilt its sampling probabilities to produce more words starting with C, S, or K. A specialized detector can measure how often those letters appear compared to normal text and detect the watermark.
@@ -77,7 +77,7 @@ Examples are in the subfolder `visualizations`
 - **Conclusion**:  
   This watermark technique can work *probabilistically* for longer texts (statistical detection), but for short texts, it either goes undetected or becomes conspicuous if overdone.
 
-## Zadanie 4
+## Task 4
 
 - **(a)**  
   Use few-shot prompt tostear the probability distribution towards answering with one, correct word. Then sample 10 times the first word that comes after a given question. Use a majority voting to chose the winner.
@@ -93,7 +93,7 @@ Examples are in the subfolder `visualizations`
 Hence, direct probability scoring could lead to confusion or computational overhead, especially if you brute-force all 10k possible answers.
 
 
-## Zadanie 5
+## Task 5
 
 A possible procedure:
 
@@ -101,7 +101,7 @@ A possible procedure:
 2. Encode the prefix as a sequence of tokens and feed them to language model as a context.  
 3. Do a beam search to find the most accurate word. The advantage over other sampling techniques is that it test words of different token length.
 
-## Zadanie 6
+## Task 6
 
 ### Answer
 
@@ -112,7 +112,7 @@ A possible procedure:
   - The model exhibits typical LM biases: strong gender stereotypes, possible negative or overgeneralizing references to certain ethnic or cultural groups.  
   - **Takeaway**: The model’s training data shapes those biases, so usage must be mindful of potential harmful stereotypes or unbalanced associations.
 
-## Zadanie 7
+## Task 7
 
 - **Prompting Technique**:
 ```
@@ -171,7 +171,7 @@ EN: I am from warsaw.
   - Alterntively, for each English word (or chunk), consult a dictionary. If Polka’s translation doesn’t match, we either re-prompt or do a post-processing step to correct potential mistakes.  
   - This could be done by a simple alignment or a final re-check stage that compares each key word in the sentence to dictionary entries for increased accuracy.
 
-## Zadanie 8
+## Task 8
 
 ### Answer
 
@@ -191,7 +191,7 @@ Three example scenarios:
 4. **Two models using sub word tokenization**
    - We use beam search to generate one word at a time with both of the models - then we choose one that's cumulative probability from both models is the highest
 
-## Zadanie 9
+## Task 9
 
 A possible alternative:
 
